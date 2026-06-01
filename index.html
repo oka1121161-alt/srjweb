@@ -6,7 +6,7 @@
     <title>SRJ MOTORS - Авто из Китая</title>
     
     <!-- Подключение шрифта Montserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap" rel="stylesheet">
     <!-- Подключение иконок FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -33,276 +33,107 @@
             overflow-x: hidden;
         }
 
-        /* ================================
-           ВЕРХНЯЯ ПАНЕЛЬ (TOP BAR)
-           ================================ */
+        /* --- СТИЛИ ШАПКИ И МЕНЮ (ИЗ ПРЕДЫДУЩЕГО ШАГА) --- */
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 50px; /* Добавлено больше воздуха */
+            padding: 15px 50px;
             background-color: var(--bg-panel);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             letter-spacing: 0.5px;
         }
-
-        /* Левая часть: График и Адрес (строго слева) */
         .top-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: var(--text-muted);
-            flex: 1; /* Занимает ровно треть пространства */
-            justify-content: flex-start;
-            font-size: 11px; /* Сделано немного меньше */
-            font-weight: 600;
+            display: flex; align-items: center; gap: 15px; color: var(--text-muted);
+            flex: 1; justify-content: flex-start; font-size: 11px; font-weight: 600;
         }
-
-        .top-info i {
-            color: var(--neon-green);
-            margin-right: 5px;
-        }
-
-        .top-info .divider {
-            color: #333;
-        }
-
-        /* Центральная часть: Название (строго по центру) */
+        .top-info i { color: var(--neon-green); margin-right: 5px; }
+        .top-info .divider { color: #333; }
         .brand-text {
-            flex: 1; /* Занимает ровно треть пространства */
-            text-align: center; /* Центрируем текст внутри блока */
-            font-size: 18px; 
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            color: var(--text-light);
-            text-transform: uppercase;
+            flex: 1; text-align: center; font-size: 18px; font-weight: 800;
+            letter-spacing: 1.5px; color: var(--text-light); text-transform: uppercase;
         }
-
-        .brand-text .highlight {
-            color: var(--neon-green);
-            text-shadow: 0 0 10px rgba(191, 255, 0, 0.4); 
-        }
-
-        /* Правая часть: Телефон и Соцсети (строго справа) */
+        .brand-text .highlight { color: var(--neon-green); text-shadow: 0 0 10px rgba(191, 255, 0, 0.4); }
         .top-contact {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex: 1; /* Занимает ровно треть пространства */
-            justify-content: flex-end;
+            display: flex; align-items: center; gap: 20px;
+            flex: 1; justify-content: flex-end;
         }
-
         .phone-link {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 14px; /* Сделано немного меньше */
-            font-weight: 800;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: var(--text-light); text-decoration: none; font-size: 14px;
+            font-weight: 800; letter-spacing: 1px; transition: all 0.3s ease;
+            display: flex; align-items: center; gap: 8px;
         }
-
-        .phone-link i {
-            color: var(--neon-green);
-        }
-
-        .phone-link:hover {
-            color: var(--neon-green);
-            text-shadow: 0 0 10px rgba(191, 255, 0, 0.4);
-        }
-
-        .socials {
-            display: flex;
-            gap: 10px;
-        }
-
+        .phone-link i { color: var(--neon-green); }
+        .phone-link:hover { color: var(--neon-green); text-shadow: 0 0 10px rgba(191, 255, 0, 0.4); }
+        .socials { display: flex; gap: 10px; }
         .socials a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 30px; /* Уменьшено для воздуха */
-            height: 30px;
-            font-size: 14px;
-            background-color: transparent;
-            color: var(--neon-green); 
-            text-decoration: none;
-            border-radius: 50%;
-            border: 1px solid rgba(191, 255, 0, 0.3); 
-            transition: all 0.3s ease;
+            display: flex; justify-content: center; align-items: center;
+            width: 30px; height: 30px; font-size: 14px; background-color: transparent;
+            color: var(--neon-green); text-decoration: none; border-radius: 50%;
+            border: 1px solid rgba(191, 255, 0, 0.3); transition: all 0.3s ease;
         }
-
         .socials a:hover {
-            background-color: var(--neon-green);
-            color: var(--bg-dark);
-            box-shadow: 0 0 15px rgba(191, 255, 0, 0.6);
-            transform: scale(1.1);
+            background-color: var(--neon-green); color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(191, 255, 0, 0.6); transform: scale(1.1);
         }
 
-        /* ================================
-           ГЛАВНОЕ МЕНЮ (MAIN NAVIGATION)
-           ================================ */
         .main-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px; /* Больше воздуха по краям */
-            background-color: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(191, 255, 0, 0.15);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 50px; background-color: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(191, 255, 0, 0.15); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: sticky; top: 0; z-index: 1000;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            flex: 1; /* Левая и правая часть занимают равное место */
-        }
-
-        /* Ссылки слева жмутся к центру */
-        .left-links {
-            justify-content: flex-end;
-            padding-right: 50px;
-        }
-
-        /* Ссылки справа жмутся к центру */
-        .right-links {
-            justify-content: flex-start;
-            padding-left: 50px;
-        }
-
+        .nav-links { display: flex; gap: 40px; align-items: center; flex: 1; }
+        .left-links { justify-content: flex-end; padding-right: 50px; }
+        .right-links { justify-content: flex-start; padding-left: 50px; }
         .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            position: relative;
-            padding: 8px 0;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
+            color: var(--text-light); text-decoration: none; font-size: 14px;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px;
+            position: relative; padding: 8px 0; transition: color 0.3s ease, text-shadow 0.3s ease;
         }
-
         .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--neon-green);
-            box-shadow: 0 0 10px var(--neon-green);
-            transform: scaleX(0); 
-            transform-origin: center;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            content: ''; position: absolute; width: 100%; height: 2px;
+            bottom: 0; left: 0; background-color: var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green); transform: scaleX(0); 
+            transform-origin: center; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .nav-links a:hover {
-            color: var(--neon-green);
-            text-shadow: 0 0 8px rgba(191, 255, 0, 0.4);
-        }
-
-        .nav-links a:hover::after {
-            transform: scaleX(1);
-        }
-
-        /* Логотип строго по центру */
-        .nav-logo {
-            flex: 0 0 auto;
-            display: flex;
-            justify-content: center;
-        }
-
+        .nav-links a:hover { color: var(--neon-green); text-shadow: 0 0 8px rgba(191, 255, 0, 0.4); }
+        .nav-links a:hover::after { transform: scaleX(1); }
+        .nav-logo { flex: 0 0 auto; display: flex; justify-content: center; }
         .nav-logo img {
-            width: 85px;
-            height: 85px;
-            border-radius: 22px; 
-            object-fit: cover;
-            border: 2px solid rgba(191, 255, 0, 0.4);
-            box-shadow: 0 0 20px rgba(191, 255, 0, 0.3);
-            transition: all 0.4s ease;
-            cursor: pointer;
-            position: relative;
-            z-index: 2;
+            width: 85px; height: 85px; border-radius: 22px; object-fit: cover;
+            border: 2px solid rgba(191, 255, 0, 0.4); box-shadow: 0 0 20px rgba(191, 255, 0, 0.3);
+            transition: all 0.4s ease; cursor: pointer; position: relative; z-index: 2;
         }
-
         .nav-logo img:hover {
-            transform: scale(1.08) translateY(-2px);
-            box-shadow: 0 10px 30px rgba(191, 255, 0, 0.7);
+            transform: scale(1.08) translateY(-2px); box-shadow: 0 10px 30px rgba(191, 255, 0, 0.7);
             border-color: var(--neon-green);
         }
 
-        /* ================================
-           HERO SECTION (ГЛАВНЫЙ ЭКРАН)
-           ================================ */
         .hero {
-            position: relative;
-            height: 85vh; 
-            min-height: 600px;
+            position: relative; height: 85vh; min-height: 600px;
             background: url('srjhero.png') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            display: flex; align-items: center; justify-content: center; text-align: center;
         }
-
         .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%;
-            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(7,7,7,0.9) 100%);
-            z-index: 1;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(7,7,7,1) 100%); z-index: 1;
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 0 20px;
-        }
-
+        .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
         .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            line-height: 1.1;
-            margin-bottom: 40px;
-            color: var(--text-light);
-            text-shadow: 0px 5px 25px rgba(0, 0, 0, 0.8);
+            font-size: 4.5rem; font-weight: 900; text-transform: uppercase;
+            letter-spacing: 2px; line-height: 1.1; margin-bottom: 40px;
+            color: var(--text-light); text-shadow: 0px 5px 25px rgba(0, 0, 0, 0.8);
         }
-
-        .hero h1 span {
-            color: var(--neon-green);
-            text-shadow: 0 0 20px rgba(191, 255, 0, 0.5);
-        }
-
+        .hero h1 span { color: var(--neon-green); text-shadow: 0 0 20px rgba(191, 255, 0, 0.5); }
         .btn-primary {
-            display: inline-block;
-            padding: 18px 50px;
-            font-size: 16px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--bg-dark);
-            background-color: var(--neon-green);
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            display: inline-block; padding: 18px 50px; font-size: 16px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1.5px; color: var(--bg-dark);
+            background-color: var(--neon-green); border: none; border-radius: 50px;
+            text-decoration: none; cursor: pointer; transition: all 0.3s ease;
             box-shadow: 0 0 20px rgba(191, 255, 0, 0.4), inset 0 0 10px rgba(255,255,255,0.4);
         }
-
         .btn-primary:hover {
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 10px 30px rgba(191, 255, 0, 0.8), inset 0 0 15px rgba(255,255,255,0.6);
@@ -310,108 +141,344 @@
         }
 
         /* ================================
-           АДАПТИВНОСТЬ (МОБИЛЬНЫЕ УСТРОЙСТВА)
+           СЕКЦИЯ КАТАЛОГА (CATALOG)
            ================================ */
+        .catalog-section {
+            padding: 80px 0 100px;
+            background-color: var(--bg-dark);
+            width: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--neon-green);
+            margin: 15px auto 0;
+            box-shadow: 0 0 15px var(--neon-green);
+            border-radius: 2px;
+        }
+
+        /* Слайдер на всю ширину */
+        .catalog-slider {
+            display: flex;
+            gap: 30px;
+            padding: 20px 50px 40px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: var(--neon-green) var(--bg-panel);
+        }
+
+        /* Кастомный скроллбар для Webkit */
+        .catalog-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        .catalog-slider::-webkit-scrollbar-track {
+            background: var(--bg-panel);
+            border-radius: 10px;
+            margin: 0 50px;
+        }
+        .catalog-slider::-webkit-scrollbar-thumb {
+            background-color: var(--neon-green);
+            border-radius: 10px;
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        /* Карточка авто */
+        .car-card {
+            flex: 0 0 calc(25% - 22.5px); /* 4 карточки на экране с учетом gap */
+            min-width: 280px;
+            background: linear-gradient(145deg, #161616 0%, #0a0a0a 100%);
+            border: 1px solid #222;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            scroll-snap-align: start;
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .car-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% -20%, rgba(191, 255, 0, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(191, 255, 0, 0.5);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(191, 255, 0, 0.15);
+        }
+
+        .car-card:hover::before {
+            opacity: 1;
+        }
+
+        .car-img-wrapper {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Изображения авто (ожидаются прозрачные PNG) */
+        .car-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 15px rgba(0,0,0,0.6));
+            transition: transform 0.5s ease;
+        }
+
+        .car-card:hover .car-img {
+            transform: scale(1.08);
+        }
+
+        .car-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .car-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .spec-item {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .spec-label {
+            display: block;
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .spec-value {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--neon-green);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 25px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-light);
+            background: transparent;
+            border: 1px solid var(--neon-green);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .car-card:hover .btn-outline {
+            background-color: var(--neon-green);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(191, 255, 0, 0.4);
+        }
+
+        /* ================================
+           МОДАЛЬНОЕ ОКНО (POPUP)
+           ================================ */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg-panel);
+            width: 90%;
+            max-width: 800px;
+            border-radius: 20px;
+            border: 1px solid rgba(191, 255, 0, 0.3);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(191, 255, 0, 0.05);
+            padding: 40px;
+            position: relative;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            gap: 30px;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--neon-green);
+        }
+
+        .modal-img-col {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, rgba(191,255,0,0.1) 0%, transparent 70%);
+        }
+
+        .modal-img-col img {
+            width: 100%;
+            filter: drop-shadow(0 20px 20px rgba(0,0,0,0.8));
+        }
+
+        .modal-info-col {
+            flex: 1;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .modal-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .modal-specs {
+            margin-bottom: 30px;
+        }
+
+        .modal-specs .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-radius: 0;
+            background: transparent;
+            border-left: none; border-right: none; border-top: none;
+        }
+
+        /* Адаптивность для мобильных */
         @media (max-width: 1200px) {
-            .top-bar {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px;
-            }
-            .brand-text {
-                order: -1; 
-                margin-bottom: 10px;
-                flex: auto;
-            }
-            .top-info, .top-contact {
-                flex: auto;
-                justify-content: center;
-                flex-direction: column;
-                gap: 8px;
-            }
-            .top-contact {
-                flex-direction: row;
-            }
-            .top-info .divider {
-                display: none;
-            }
-            .main-nav {
-                flex-direction: column;
-                gap: 20px;
-                padding: 20px;
-            }
-            .nav-links {
-                gap: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-                flex: auto;
-            }
-            .left-links, .right-links {
-                padding: 0;
-            }
-            .nav-logo {
-                order: -1; 
-                margin-bottom: 10px;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+            /* Шапка и меню (из предыдущего кода) */
+            .top-bar { flex-direction: column; gap: 15px; padding: 15px; }
+            .brand-text { order: -1; margin-bottom: 10px; flex: auto; }
+            .top-info, .top-contact { flex: auto; justify-content: center; flex-direction: column; gap: 8px; }
+            .top-contact { flex-direction: row; }
+            .top-info .divider { display: none; }
+            .main-nav { flex-direction: column; gap: 20px; padding: 20px; }
+            .nav-links { gap: 20px; flex-wrap: wrap; justify-content: center; flex: auto; }
+            .left-links, .right-links { padding: 0; }
+            .nav-logo { order: -1; margin-bottom: 10px; }
+            .hero h1 { font-size: 2.5rem; }
+
+            /* Каталог */
+            .car-card { flex: 0 0 calc(50% - 15px); }
+            
+            /* Модалка */
+            .modal-content { flex-direction: column; padding: 30px 20px; }
+            .modal-img-col { height: 200px; margin-bottom: 20px; }
+        }
+
+        @media (max-width: 768px) {
+            .car-card { flex: 0 0 85%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ВЕРХНЕЕ ПОДМЕНЮ (Top Bar) -->
+    <!-- ВЕРХНЕЕ ПОДМЕНЮ -->
     <div class="top-bar">
-        <!-- Левый блок: График и Адрес (строго слева) -->
         <div class="top-info">
             <span><i class="far fa-clock"></i> ПН - ВС 9-18, БЕЗ ВЫХОДНЫХ</span>
             <span class="divider">|</span>
             <span><i class="fas fa-map-marker-alt"></i> г. Минск, ул. Жореса Алферова 14</span>
         </div>
-
-        <!-- Центральный блок: Название (строго по центру) -->
         <div class="brand-text">
             SRJ MOTORS - <span class="highlight">АВТО ИЗ КИТАЯ</span> С ГАРАНТИЕЙ
         </div>
-
-        <!-- Правый блок: Телефон и Соцсети (строго справа) -->
         <div class="top-contact">
-            <a href="tel:+375336726666" class="phone-link">
-                <i class="fas fa-phone-alt"></i> +375 33 672-66-66
-            </a>
+            <a href="tel:+375336726666" class="phone-link"><i class="fas fa-phone-alt"></i> +375 33 672-66-66</a>
             <div class="socials">
-                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-telegram-plane"></i></a>
             </div>
         </div>
     </div>
 
-    <!-- ГЛАВНОЕ МЕНЮ (Main Navigation) -->
+    <!-- ГЛАВНОЕ МЕНЮ -->
     <nav class="main-nav">
-        <!-- Левые ссылки -->
         <div class="nav-links left-links">
-            <a href="#">Главная</a>
-            <a href="#">Каталог</a>
-            <a href="#">Калькулятор растаможки</a>
+            <a href="#">Главная</a> <a href="#">Каталог</a> <a href="#">Калькулятор растаможки</a>
         </div>
-
-        <!-- Центральный логотип (строго по центру) -->
         <div class="nav-logo">
-            <a href="#">
-                <img src="srjlo-2.png" alt="SRJ Motors Logo">
-            </a>
+            <a href="#"><img src="srjlo-2.png" alt="SRJ Motors Logo"></a>
         </div>
-
-        <!-- Правые ссылки -->
         <div class="nav-links right-links">
-            <a href="#">О нас</a>
-            <a href="#">Отзывы</a>
-            <a href="#">Контакты</a>
+            <a href="#">О нас</a> <a href="#">Отзывы</a> <a href="#">Контакты</a>
         </div>
     </nav>
 
-    <!-- ГЛАВНЫЙ ЭКРАН (Hero Section) -->
+    <!-- ГЛАВНЫЙ ЭКРАН -->
     <section class="hero">
         <div class="hero-content">
             <h1><span>Китайские авто</span><br>в наличии и под заказ</h1>
@@ -419,5 +486,173 @@
         </div>
     </section>
 
+    <!-- СЕКЦИЯ КАТАЛОГА -->
+    <section class="catalog-section" id="catalog">
+        <h2 class="section-title">Популярные Электромобили</h2>
+        
+        <div class="catalog-slider">
+            
+            <!-- Авто 1: BYD Sea Lion 06 -->
+            <div class="car-card" onclick="openModal('sealion06')">
+                <div class="car-img-wrapper">
+                    <img src="sealion06.png" alt="BYD Sea Lion 06" class="car-img">
+                </div>
+                <h3 class="car-title">BYD Sea Lion 06</h3>
+                <div class="car-specs">
+                    <div class="spec-item"><span class="spec-label">Батарея</span><span class="spec-value">71.8 кВт⋅ч</span></div>
+                    <div class="spec-item"><span class="spec-label">Запас хода</span><span class="spec-value">510 км</span></div>
+                    <div class="spec-item"><span class="spec-label">Мощность</span><span class="spec-value">218 л.с.</span></div>
+                    <div class="spec-item"><span class="spec-label">Привод</span><span class="spec-value">Передний</span></div>
+                </div>
+                <div class="btn-outline">Подробнее</div>
+            </div>
+
+            <!-- Авто 2: BYD Sea Lion 07 -->
+            <div class="car-card" onclick="openModal('sealion07')">
+                <div class="car-img-wrapper">
+                    <img src="sealion07.png" alt="BYD Sea Lion 07" class="car-img">
+                </div>
+                <h3 class="car-title">BYD Sea Lion 07</h3>
+                <div class="car-specs">
+                    <div class="spec-item"><span class="spec-label">Батарея</span><span class="spec-value">80.6 кВт⋅ч</span></div>
+                    <div class="spec-item"><span class="spec-label">Запас хода</span><span class="spec-value">610 км</span></div>
+                    <div class="spec-item"><span class="spec-label">Мощность</span><span class="spec-value">313 л.с.</span></div>
+                    <div class="spec-item"><span class="spec-label">Привод</span><span class="spec-value">Задний</span></div>
+                </div>
+                <div class="btn-outline">Подробнее</div>
+            </div>
+
+            <!-- Авто 3: Changan Q05 -->
+            <div class="car-card" onclick="openModal('q05')">
+                <div class="car-img-wrapper">
+                    <img src="changan_q05.png" alt="Changan Q05" class="car-img">
+                </div>
+                <h3 class="car-title">Changan Q05</h3>
+                <div class="car-specs">
+                    <div class="spec-item"><span class="spec-label">Батарея</span><span class="spec-value">60 кВт⋅ч</span></div>
+                    <div class="spec-item"><span class="spec-label">Запас хода</span><span class="spec-value">450 км</span></div>
+                    <div class="spec-item"><span class="spec-label">Мощность</span><span class="spec-value">215 л.с.</span></div>
+                    <div class="spec-item"><span class="spec-label">Привод</span><span class="spec-value">Передний</span></div>
+                </div>
+                <div class="btn-outline">Подробнее</div>
+            </div>
+
+            <!-- Авто 4: Changan A06 -->
+            <div class="car-card" onclick="openModal('a06')">
+                <div class="car-img-wrapper">
+                    <img src="changan_a06.png" alt="Changan A06" class="car-img">
+                </div>
+                <h3 class="car-title">Changan A06</h3>
+                <div class="car-specs">
+                    <div class="spec-item"><span class="spec-label">Батарея</span><span class="spec-value">55 кВт⋅ч</span></div>
+                    <div class="spec-item"><span class="spec-label">Запас хода</span><span class="spec-value">505 км</span></div>
+                    <div class="spec-item"><span class="spec-label">Мощность</span><span class="spec-value">258 л.с.</span></div>
+                    <div class="spec-item"><span class="spec-label">Привод</span><span class="spec-value">Передний</span></div>
+                </div>
+                <div class="btn-outline">Подробнее</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ АВТО -->
+    <div class="modal-overlay" id="carModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-img-col">
+                <img src="" alt="Car Image" id="modalImg">
+            </div>
+            
+            <div class="modal-info-col">
+                <h3 class="modal-title" id="modalTitle">Название авто</h3>
+                <p class="modal-desc" id="modalDesc">Описание автомобиля.</p>
+                
+                <div class="modal-specs">
+                    <div class="spec-item">
+                        <span class="spec-label">Емкость батареи:</span>
+                        <span class="spec-value" id="modalBat">--</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Запас хода:</span>
+                        <span class="spec-value" id="modalRange">--</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Мощность:</span>
+                        <span class="spec-value" id="modalHp">--</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Привод:</span>
+                        <span class="spec-value" id="modalDrive">--</span>
+                    </div>
+                </div>
+                
+                <a href="#callback" class="btn-primary" style="width: 100%; text-align: center; padding: 15px 0;">Оставить заявку</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- СКРИПТ ДЛЯ УПРАВЛЕНИЯ ПОПАПОМ -->
+    <script>
+        // База данных автомобилей (можешь менять тексты и цифры здесь)
+        const carData = {
+            'sealion06': {
+                title: 'BYD Sea Lion 06',
+                img: 'sealion06.png',
+                desc: 'Современный кроссовер нового поколения. Оснащен передовой архитектурой e-Platform 3.0 Evo с технологией интеграции батареи CTB (Cell-to-Body). Это инновационное решение полностью устраняет уязвимости нижней части кузова и обеспечивает увеличенный дорожный просвет по сравнению с предыдущими моделями, гарантируя максимальную безопасность и великолепную проходимость.',
+                bat: '71.8 кВт⋅ч', range: '510 км', hp: '218 л.с.', drive: 'Передний'
+            },
+            'sealion07': {
+                title: 'BYD Sea Lion 07',
+                img: 'sealion07.png',
+                desc: 'Стильный электрический фастбэк-кроссовер с выдающейся аэродинамикой и премиальным интерьером. Воплощает в себе будущее электрического транспорта с передовыми системами автономного вождения.',
+                bat: '80.6 кВт⋅ч', range: '610 км', hp: '313 л.с.', drive: 'Задний'
+            },
+            'q05': {
+                title: 'Changan Q05',
+                img: 'changan_q05.png',
+                desc: 'Динамичный и технологичный городской кроссовер с выразительным футуристичным дизайном. Идеальный баланс комфорта, технологий и эффективности для ежедневных поездок.',
+                bat: '60 кВт⋅ч', range: '450 км', hp: '215 л.с.', drive: 'Передний'
+            },
+            'a06': {
+                title: 'Changan A06',
+                img: 'changan_a06.png',
+                desc: 'Спортивный лифтбек, притягивающий взгляды. Отличается агрессивным экстерьером, продвинутыми электронными ассистентами и превосходной динамикой разгона.',
+                bat: '55 кВт⋅ч', range: '505 км', hp: '258 л.с.', drive: 'Передний'
+            }
+        };
+
+        const modal = document.getElementById('carModal');
+
+        function openModal(carId) {
+            const data = carData[carId];
+            if (!data) return;
+
+            // Заполняем данные
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalImg').src = data.img;
+            document.getElementById('modalDesc').textContent = data.desc;
+            document.getElementById('modalBat').textContent = data.bat;
+            document.getElementById('modalRange').textContent = data.range;
+            document.getElementById('modalHp').textContent = data.hp;
+            document.getElementById('modalDrive').textContent = data.drive;
+
+            // Показываем окно
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Убираем скролл сайта
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Возвращаем скролл
+        }
+
+        // Закрытие модального окна при клике вне карточки
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
