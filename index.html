@@ -40,20 +40,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 40px;
+            padding: 15px 50px; /* Добавлено больше воздуха */
             background-color: var(--bg-panel);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 13px;
-            font-weight: 600;
             letter-spacing: 0.5px;
         }
 
-        /* Левая часть: График и Адрес */
+        /* Левая часть: График и Адрес (строго слева) */
         .top-info {
             display: flex;
             align-items: center;
             gap: 15px;
             color: var(--text-muted);
+            flex: 1; /* Занимает ровно треть пространства */
+            justify-content: flex-start;
+            font-size: 11px; /* Сделано немного меньше */
+            font-weight: 600;
         }
 
         .top-info i {
@@ -65,14 +67,15 @@
             color: #333;
         }
 
-        /* Центральная часть: Название */
+        /* Центральная часть: Название (строго по центру) */
         .brand-text {
+            flex: 1; /* Занимает ровно треть пространства */
+            text-align: center; /* Центрируем текст внутри блока */
             font-size: 18px; 
             font-weight: 800;
             letter-spacing: 1.5px;
             color: var(--text-light);
             text-transform: uppercase;
-            text-align: center;
         }
 
         .brand-text .highlight {
@@ -80,17 +83,19 @@
             text-shadow: 0 0 10px rgba(191, 255, 0, 0.4); 
         }
 
-        /* Правая часть: Телефон и Соцсети */
+        /* Правая часть: Телефон и Соцсети (строго справа) */
         .top-contact {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 20px;
+            flex: 1; /* Занимает ровно треть пространства */
+            justify-content: flex-end;
         }
 
         .phone-link {
             color: var(--text-light);
             text-decoration: none;
-            font-size: 16px;
+            font-size: 14px; /* Сделано немного меньше */
             font-weight: 800;
             letter-spacing: 1px;
             transition: all 0.3s ease;
@@ -117,8 +122,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 32px;
-            height: 32px;
+            width: 30px; /* Уменьшено для воздуха */
+            height: 30px;
+            font-size: 14px;
             background-color: transparent;
             color: var(--neon-green); 
             text-decoration: none;
@@ -139,9 +145,9 @@
            ================================ */
         .main-nav {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            padding: 15px 40px;
+            padding: 15px 50px; /* Больше воздуха по краям */
             background-color: rgba(10, 10, 10, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -156,14 +162,19 @@
             display: flex;
             gap: 40px;
             align-items: center;
+            flex: 1; /* Левая и правая часть занимают равное место */
         }
 
+        /* Ссылки слева жмутся к центру */
         .left-links {
-            margin-right: 50px;
+            justify-content: flex-end;
+            padding-right: 50px;
         }
 
+        /* Ссылки справа жмутся к центру */
         .right-links {
-            margin-left: 50px;
+            justify-content: flex-start;
+            padding-left: 50px;
         }
 
         .nav-links a {
@@ -201,6 +212,13 @@
             transform: scaleX(1);
         }
 
+        /* Логотип строго по центру */
+        .nav-logo {
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
         .nav-logo img {
             width: 85px;
             height: 85px;
@@ -225,9 +243,8 @@
            ================================ */
         .hero {
             position: relative;
-            height: 85vh; /* Занимает 85% высоты экрана */
+            height: 85vh; 
             min-height: 600px;
-            /* Подставляем твое фото с расширением .png */
             background: url('srjhero.png') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -235,7 +252,6 @@
             text-align: center;
         }
 
-        /* Темный полупрозрачный слой поверх картинки для читаемости текста */
         .hero::before {
             content: '';
             position: absolute;
@@ -270,7 +286,6 @@
             text-shadow: 0 0 20px rgba(191, 255, 0, 0.5);
         }
 
-        /* Кнопка "Заказать звонок" */
         .btn-primary {
             display: inline-block;
             padding: 18px 50px;
@@ -304,12 +319,18 @@
                 padding: 15px;
             }
             .brand-text {
-                order: -1; /* Название наверх на мобильных */
+                order: -1; 
                 margin-bottom: 10px;
+                flex: auto;
             }
-            .top-info {
+            .top-info, .top-contact {
+                flex: auto;
+                justify-content: center;
                 flex-direction: column;
                 gap: 8px;
+            }
+            .top-contact {
+                flex-direction: row;
             }
             .top-info .divider {
                 display: none;
@@ -323,9 +344,10 @@
                 gap: 20px;
                 flex-wrap: wrap;
                 justify-content: center;
+                flex: auto;
             }
             .left-links, .right-links {
-                margin: 0;
+                padding: 0;
             }
             .nav-logo {
                 order: -1; 
@@ -341,19 +363,19 @@
 
     <!-- ВЕРХНЕЕ ПОДМЕНЮ (Top Bar) -->
     <div class="top-bar">
-        <!-- Левый блок: График и Адрес -->
+        <!-- Левый блок: График и Адрес (строго слева) -->
         <div class="top-info">
             <span><i class="far fa-clock"></i> ПН - ВС 9-18, БЕЗ ВЫХОДНЫХ</span>
             <span class="divider">|</span>
             <span><i class="fas fa-map-marker-alt"></i> г. Минск, ул. Жореса Алферова 14</span>
         </div>
 
-        <!-- Центральный блок: Название -->
+        <!-- Центральный блок: Название (строго по центру) -->
         <div class="brand-text">
             SRJ MOTORS - <span class="highlight">АВТО ИЗ КИТАЯ</span> С ГАРАНТИЕЙ
         </div>
 
-        <!-- Правый блок: Телефон и Соцсети -->
+        <!-- Правый блок: Телефон и Соцсети (строго справа) -->
         <div class="top-contact">
             <a href="tel:+375336726666" class="phone-link">
                 <i class="fas fa-phone-alt"></i> +375 33 672-66-66
@@ -374,7 +396,7 @@
             <a href="#">Калькулятор растаможки</a>
         </div>
 
-        <!-- Центральный логотип (формат .png) -->
+        <!-- Центральный логотип (строго по центру) -->
         <div class="nav-logo">
             <a href="#">
                 <img src="srjlo-2.png" alt="SRJ Motors Logo">
