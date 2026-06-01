@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRJ MOTORS - Авто из Китая</title>
     
-    <!-- Подключение шрифта Montserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap" rel="stylesheet">
-    <!-- Подключение иконок FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -15,9 +13,11 @@
             /* Фирменные цвета */
             --bg-dark: #070707;
             --bg-panel: #111111;
+            --bg-input: #1a1a1a;
             --neon-green: #bfff00; 
             --text-light: #f5f5f5;
-            --text-muted: #aaaaaa;
+            --text-muted: #8d8d8d;
+            --border-light: rgba(255, 255, 255, 0.07);
         }
 
         * {
@@ -33,15 +33,11 @@
             overflow-x: hidden;
         }
 
-        /* --- СТИЛИ ШАПКИ И МЕНЮ (ИЗ ПРЕДЫДУЩЕГО ШАГА) --- */
+        /* --- СТИЛИ ШАПКИ И МЕНЮ --- */
         .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            background-color: var(--bg-panel);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            letter-spacing: 0.5px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 50px; background-color: var(--bg-panel);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); letter-spacing: 0.5px;
         }
         .top-info {
             display: flex; align-items: center; gap: 15px; color: var(--text-muted);
@@ -54,10 +50,7 @@
             letter-spacing: 1.5px; color: var(--text-light); text-transform: uppercase;
         }
         .brand-text .highlight { color: var(--neon-green); text-shadow: 0 0 10px rgba(191, 255, 0, 0.4); }
-        .top-contact {
-            display: flex; align-items: center; gap: 20px;
-            flex: 1; justify-content: flex-end;
-        }
+        .top-contact { display: flex; align-items: center; gap: 20px; flex: 1; justify-content: flex-end; }
         .phone-link {
             color: var(--text-light); text-decoration: none; font-size: 14px;
             font-weight: 800; letter-spacing: 1px; transition: all 0.3s ease;
@@ -106,10 +99,7 @@
             border: 2px solid rgba(191, 255, 0, 0.4); box-shadow: 0 0 20px rgba(191, 255, 0, 0.3);
             transition: all 0.4s ease; cursor: pointer; position: relative; z-index: 2;
         }
-        .nav-logo img:hover {
-            transform: scale(1.08) translateY(-2px); box-shadow: 0 10px 30px rgba(191, 255, 0, 0.7);
-            border-color: var(--neon-green);
-        }
+        .nav-logo img:hover { transform: scale(1.08) translateY(-2px); box-shadow: 0 10px 30px rgba(191, 255, 0, 0.7); border-color: var(--neon-green); }
 
         .hero {
             position: relative; height: 85vh; min-height: 600px;
@@ -135,291 +125,298 @@
             box-shadow: 0 0 20px rgba(191, 255, 0, 0.4), inset 0 0 10px rgba(255,255,255,0.4);
         }
         .btn-primary:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(191, 255, 0, 0.8), inset 0 0 15px rgba(255,255,255,0.6);
-            background-color: #ccff33;
+            transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 30px rgba(191, 255, 0, 0.8), inset 0 0 15px rgba(255,255,255,0.6); background-color: #ccff33;
         }
 
-        /* ================================
-           СЕКЦИЯ КАТАЛОГА (CATALOG)
-           ================================ */
-        .catalog-section {
-            padding: 80px 0 100px;
-            background-color: var(--bg-dark);
-            width: 100%;
-        }
-
+        /* --- СЕКЦИЯ КАТАЛОГА --- */
+        .catalog-section { padding: 80px 0 60px; background-color: var(--bg-dark); width: 100%; }
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 50px;
-            position: relative;
+            text-align: center; font-size: 2.5rem; font-weight: 900; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 50px; position: relative;
         }
-
         .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--neon-green);
-            margin: 15px auto 0;
-            box-shadow: 0 0 15px var(--neon-green);
-            border-radius: 2px;
+            content: ''; display: block; width: 80px; height: 4px; background-color: var(--neon-green);
+            margin: 15px auto 0; box-shadow: 0 0 15px var(--neon-green); border-radius: 2px;
         }
-
-        /* Слайдер на всю ширину */
         .catalog-slider {
-            display: flex;
-            gap: 30px;
-            padding: 20px 50px 40px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: var(--neon-green) var(--bg-panel);
+            display: flex; gap: 30px; padding: 20px 50px 40px; overflow-x: auto;
+            scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--neon-green) var(--bg-panel);
         }
-
-        /* Кастомный скроллбар для Webkit */
-        .catalog-slider::-webkit-scrollbar {
-            height: 8px;
-        }
-        .catalog-slider::-webkit-scrollbar-track {
-            background: var(--bg-panel);
-            border-radius: 10px;
-            margin: 0 50px;
-        }
-        .catalog-slider::-webkit-scrollbar-thumb {
-            background-color: var(--neon-green);
-            border-radius: 10px;
-            box-shadow: 0 0 10px var(--neon-green);
-        }
-
-        /* Карточка авто */
+        .catalog-slider::-webkit-scrollbar { height: 8px; }
+        .catalog-slider::-webkit-scrollbar-track { background: var(--bg-panel); border-radius: 10px; margin: 0 50px; }
+        .catalog-slider::-webkit-scrollbar-thumb { background-color: var(--neon-green); border-radius: 10px; box-shadow: 0 0 10px var(--neon-green); }
         .car-card {
-            flex: 0 0 calc(25% - 22.5px); /* 4 карточки на экране с учетом gap */
-            min-width: 280px;
-            background: linear-gradient(145deg, #161616 0%, #0a0a0a 100%);
-            border: 1px solid #222;
-            border-radius: 20px;
-            padding: 30px 20px;
-            text-align: center;
-            scroll-snap-align: start;
-            transition: all 0.4s ease;
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
+            flex: 0 0 calc(25% - 22.5px); min-width: 280px; background: linear-gradient(145deg, #161616 0%, #0a0a0a 100%);
+            border: 1px solid #222; border-radius: 20px; padding: 30px 20px; text-align: center;
+            scroll-snap-align: start; transition: all 0.4s ease; position: relative; cursor: pointer; overflow: hidden;
         }
-
         .car-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% -20%, rgba(191, 255, 0, 0.1), transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% -20%, rgba(191, 255, 0, 0.1), transparent 70%); opacity: 0; transition: opacity 0.4s ease;
+        }
+        .car-card:hover { transform: translateY(-10px); border-color: rgba(191, 255, 0, 0.5); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(191, 255, 0, 0.15); }
+        .car-card:hover::before { opacity: 1; }
+        .car-img-wrapper { height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; position: relative; z-index: 2; }
+        .car-img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 15px 15px rgba(0,0,0,0.6)); transition: transform 0.5s ease; }
+        .car-card:hover .car-img { transform: scale(1.08); }
+        .car-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 15px; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; position: relative; z-index: 2; }
+        .car-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 25px; position: relative; z-index: 2; }
+        .spec-item { background-color: rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 10px; border: 1px solid rgba(255,255,255,0.05); }
+        .spec-label { display: block; font-size: 10px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 5px; }
+        .spec-value { font-size: 13px; font-weight: 700; color: var(--neon-green); }
+        .btn-outline {
+            display: inline-block; padding: 10px 25px; font-size: 12px; font-weight: 700; text-transform: uppercase;
+            color: var(--text-light); background: transparent; border: 1px solid var(--neon-green); border-radius: 30px; transition: all 0.3s ease; position: relative; z-index: 2;
+        }
+        .car-card:hover .btn-outline { background-color: var(--neon-green); color: var(--bg-dark); box-shadow: 0 0 15px rgba(191, 255, 0, 0.4); }
+
+        /* --- СЕКЦИЯ КАЛЬКУЛЯТОРА --- */
+        .calculator-section {
+            padding: 60px 20px 100px;
+            background-image: radial-gradient(circle at 50% 100%, #1a2210 0%, #070707 50%);
+        }
+        
+        .calc-wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 30px;
+            align-items: start;
         }
 
-        .car-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(191, 255, 0, 0.5);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(191, 255, 0, 0.15);
+        .calculator-form, .result-card {
+            background: rgba(16, 16, 16, 0.85);
+            border: 1px solid rgba(191, 255, 0, 0.15);
+            border-radius: 30px;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(191, 255, 0, 0.02);
+            padding: 40px;
         }
 
-        .car-card:hover::before {
-            opacity: 1;
+        .result-card {
+            position: sticky;
+            top: 120px;
         }
 
-        .car-img-wrapper {
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
+        .calc-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 35px;
+            text-align: center;
         }
 
-        /* Изображения авто (ожидаются прозрачные PNG) */
-        .car-img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 15px 15px rgba(0,0,0,0.6));
-            transition: transform 0.5s ease;
+        .calc-field {
+            margin-bottom: 25px;
         }
 
-        .car-card:hover .car-img {
-            transform: scale(1.08);
-        }
-
-        .car-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 15px;
+        .calc-label {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+            font-weight: 700;
             color: var(--text-light);
             text-transform: uppercase;
             letter-spacing: 1px;
-            position: relative;
-            z-index: 2;
         }
 
-        .car-specs {
+        .calc-input-wrap {
+            position: relative;
+        }
+
+        .calc-input {
+            width: 100%;
+            height: 60px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-light);
+            border-radius: 15px;
+            padding: 0 20px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .calc-input::-webkit-inner-spin-button,
+        .calc-input::-webkit-outer-spin-button {
+            -webkit-appearance: none; margin: 0;
+        }
+
+        .calc-input:focus {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 15px rgba(191, 255, 0, 0.2);
+        }
+
+        .calc-input::placeholder { color: #5f5f5f; font-weight: 500; }
+
+        .calc-currency {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--neon-green);
+            font-weight: 800;
+            font-size: 18px;
+            pointer-events: none;
+        }
+
+        .calc-select-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 2;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
         }
 
-        .spec-item {
-            background-color: rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
+        .calc-option input { display: none; }
+
+        .calc-option label {
+            height: 100%;
+            min-height: 60px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-light);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             padding: 10px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .spec-label {
-            display: block;
-            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
             color: var(--text-muted);
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .spec-value {
             font-size: 13px;
             font-weight: 700;
-            color: var(--neon-green);
-        }
-
-        .btn-outline {
-            display: inline-block;
-            padding: 10px 25px;
-            font-size: 12px;
-            font-weight: 700;
             text-transform: uppercase;
-            color: var(--text-light);
-            background: transparent;
-            border: 1px solid var(--neon-green);
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
         }
 
-        .car-card:hover .btn-outline {
-            background-color: var(--neon-green);
+        .calc-option label:hover {
+            border-color: rgba(191, 255, 0, 0.5);
+            color: #fff;
+        }
+
+        .calc-option input:checked + label {
+            background: var(--neon-green);
+            border-color: var(--neon-green);
             color: var(--bg-dark);
-            box-shadow: 0 0 15px rgba(191, 255, 0, 0.4);
+            box-shadow: 0 0 20px rgba(191, 255, 0, 0.3);
         }
 
-        /* ================================
-           МОДАЛЬНОЕ ОКНО (POPUP)
-           ================================ */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background: var(--bg-panel);
-            width: 90%;
-            max-width: 800px;
-            border-radius: 20px;
-            border: 1px solid rgba(191, 255, 0, 0.3);
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(191, 255, 0, 0.05);
-            padding: 40px;
-            position: relative;
-            transform: translateY(30px) scale(0.95);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            gap: 30px;
-        }
-
-        .modal-overlay.active .modal-content {
-            transform: translateY(0) scale(1);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 28px;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .modal-close:hover {
-            color: var(--neon-green);
-        }
-
-        .modal-img-col {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(circle, rgba(191,255,0,0.1) 0%, transparent 70%);
-        }
-
-        .modal-img-col img {
-            width: 100%;
-            filter: drop-shadow(0 20px 20px rgba(0,0,0,0.8));
-        }
-
-        .modal-info-col {
-            flex: 1;
-        }
-
-        .modal-title {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--text-light);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .modal-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
+        .calc-checkbox-block {
+            display: none;
             margin-bottom: 25px;
         }
 
-        .modal-specs {
-            margin-bottom: 30px;
-        }
-
-        .modal-specs .spec-item {
+        .calc-checkbox {
             display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            border-radius: 0;
-            background: transparent;
-            border-left: none; border-right: none; border-top: none;
+            align-items: center;
+            gap: 15px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-light);
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .calc-checkbox:hover { border-color: rgba(191, 255, 0, 0.5); }
+
+        .calc-checkbox input { display: none; }
+
+        .calc-checkmark {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: #111;
+            position: relative;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
         }
 
-        /* Адаптивность для мобильных */
+        .calc-checkmark::after {
+            content: ''; position: absolute; width: 6px; height: 12px;
+            border-right: 3px solid var(--bg-dark); border-bottom: 3px solid var(--bg-dark);
+            transform: rotate(45deg); left: 7px; top: 2px; opacity: 0; transition: opacity 0.2s ease;
+        }
+
+        .calc-checkbox input:checked + .calc-checkmark {
+            background: var(--neon-green);
+            border-color: var(--neon-green);
+            box-shadow: 0 0 10px rgba(191, 255, 0, 0.5);
+        }
+
+        .calc-checkbox input:checked + .calc-checkmark::after { opacity: 1; }
+
+        .calc-checkbox-text { font-size: 14px; font-weight: 700; color: #e8e8e8; }
+        .hidden { display: none; }
+
+        /* Итоги калькулятора */
+        .res-title {
+            font-size: 24px; font-weight: 900; margin-bottom: 30px;
+            text-transform: uppercase; text-align: center; letter-spacing: 1px;
+            color: var(--text-light);
+        }
+
+        .res-list { display: flex; flex-direction: column; gap: 15px; }
+
+        .res-item {
+            display: flex; align-items: center; justify-content: space-between; gap: 15px;
+            background: var(--bg-input); border: 1px solid var(--border-light);
+            border-radius: 15px; padding: 20px; transition: all 0.3s ease;
+        }
+        
+        .res-item:hover { border-color: rgba(191, 255, 0, 0.2); }
+
+        .res-name { color: var(--text-muted); font-size: 13px; font-weight: 600; text-transform: uppercase; }
+        .res-value { font-size: 16px; font-weight: 800; text-align: right; color: var(--text-light); }
+
+        .res-total { margin-top: 25px; }
+        .res-total .res-item {
+            background: linear-gradient(135deg, rgba(191,255,0,0.1) 0%, rgba(10,10,10,1) 100%);
+            border-color: var(--neon-green);
+            box-shadow: 0 0 20px rgba(191, 255, 0, 0.1);
+        }
+        .res-total .res-name { color: var(--text-light); }
+        .res-total .res-value {
+            font-size: 24px; color: var(--neon-green);
+            text-shadow: 0 0 15px rgba(191, 255, 0, 0.4);
+        }
+
+        .res-rate {
+            margin-top: 20px; text-align: center; color: var(--text-muted);
+            font-size: 12px; font-weight: 600;
+        }
+
+        /* --- МОДАЛЬНОЕ ОКНО --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px); z-index: 9999;
+            display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.4s ease;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content {
+            background: var(--bg-panel); width: 90%; max-width: 800px; border-radius: 20px;
+            border: 1px solid rgba(191, 255, 0, 0.3); box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(191, 255, 0, 0.05);
+            padding: 40px; position: relative; transform: translateY(30px) scale(0.95); transition: all 0.4s ease; display: flex; gap: 30px;
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+        .modal-close { position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--text-muted); cursor: pointer; transition: color 0.3s ease; }
+        .modal-close:hover { color: var(--neon-green); }
+        .modal-img-col { flex: 1; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle, rgba(191,255,0,0.1) 0%, transparent 70%); }
+        .modal-img-col img { width: 100%; filter: drop-shadow(0 20px 20px rgba(0,0,0,0.8)); }
+        .modal-info-col { flex: 1; }
+        .modal-title { font-size: 2rem; font-weight: 900; color: var(--text-light); margin-bottom: 15px; text-transform: uppercase; }
+        .modal-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 25px; font-weight: 500;}
+        .modal-specs { margin-bottom: 30px; }
+        .modal-specs .spec-item {
+            display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-radius: 0; background: transparent; border-left: none; border-right: none; border-top: none;
+        }
+
+        /* --- АДАПТИВНОСТЬ --- */
         @media (max-width: 1200px) {
-            /* Шапка и меню (из предыдущего кода) */
             .top-bar { flex-direction: column; gap: 15px; padding: 15px; }
             .brand-text { order: -1; margin-bottom: 10px; flex: auto; }
             .top-info, .top-contact { flex: auto; justify-content: center; flex-direction: column; gap: 8px; }
@@ -430,23 +427,22 @@
             .left-links, .right-links { padding: 0; }
             .nav-logo { order: -1; margin-bottom: 10px; }
             .hero h1 { font-size: 2.5rem; }
-
-            /* Каталог */
             .car-card { flex: 0 0 calc(50% - 15px); }
-            
-            /* Модалка */
             .modal-content { flex-direction: column; padding: 30px 20px; }
             .modal-img-col { height: 200px; margin-bottom: 20px; }
+            .calc-wrapper { grid-template-columns: 1fr; }
+            .result-card { position: relative; top: 0; }
         }
 
         @media (max-width: 768px) {
             .car-card { flex: 0 0 85%; }
+            .calculator-form, .result-card { padding: 25px; }
+            .calc-select-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ВЕРХНЕЕ ПОДМЕНЮ -->
     <div class="top-bar">
         <div class="top-info">
             <span><i class="far fa-clock"></i> ПН - ВС 9-18, БЕЗ ВЫХОДНЫХ</span>
@@ -465,10 +461,9 @@
         </div>
     </div>
 
-    <!-- ГЛАВНОЕ МЕНЮ -->
     <nav class="main-nav">
         <div class="nav-links left-links">
-            <a href="#">Главная</a> <a href="#">Каталог</a> <a href="#">Калькулятор растаможки</a>
+            <a href="#">Главная</a> <a href="#catalog">Каталог</a> <a href="#calculator">Калькулятор растаможки</a>
         </div>
         <div class="nav-logo">
             <a href="#"><img src="srjlo-2.png" alt="SRJ Motors Logo"></a>
@@ -478,25 +473,18 @@
         </div>
     </nav>
 
-    <!-- ГЛАВНЫЙ ЭКРАН -->
     <section class="hero">
         <div class="hero-content">
             <h1><span>Китайские авто</span><br>в наличии и под заказ</h1>
-            <a href="#callback" class="btn-primary">Заказать звонок</a>
+            <a href="#catalog" class="btn-primary">Выбрать авто</a>
         </div>
     </section>
 
-    <!-- СЕКЦИЯ КАТАЛОГА -->
     <section class="catalog-section" id="catalog">
         <h2 class="section-title">Популярные Электромобили</h2>
-        
         <div class="catalog-slider">
-            
-            <!-- Авто 1: BYD Sea Lion 06 -->
             <div class="car-card" onclick="openModal('sealion06')">
-                <div class="car-img-wrapper">
-                    <img src="sealion06.png" alt="BYD Sea Lion 06" class="car-img">
-                </div>
+                <div class="car-img-wrapper"><img src="sealion06.png" alt="BYD Sea Lion 06" class="car-img"></div>
                 <h3 class="car-title">BYD Sea Lion 06</h3>
                 <div class="car-specs">
                     <div class="spec-item"><span class="spec-label">Батарея</span><span class="spec-value">71.8 кВт⋅ч</span></div>
@@ -506,12 +494,8 @@
                 </div>
                 <div class="btn-outline">Подробнее</div>
             </div>
-
-            <!-- Авто 2: BYD Sea Lion 07 -->
             <div class="car-card" onclick="openModal('sealion07')">
-                <div class="car-img-wrapper">
-                    <img src="sealion07.png" alt="BYD Sea Lion 07" class="car-img">
-                </div>
+                <div class="car-img-wrapper"><img src="sealion07.png" alt="BYD Sea Lion 07" class="car-img"></div>
                 <h3 class="car-title">BYD Sea Lion 07</h3>
                 <div class="car-specs">
                     <div class="spec-item"><span class="spec-label">Батарея</span><span class="spec-value">80.6 кВт⋅ч</span></div>
@@ -521,12 +505,8 @@
                 </div>
                 <div class="btn-outline">Подробнее</div>
             </div>
-
-            <!-- Авто 3: Changan Q05 -->
             <div class="car-card" onclick="openModal('q05')">
-                <div class="car-img-wrapper">
-                    <img src="changan_q05.png" alt="Changan Q05" class="car-img">
-                </div>
+                <div class="car-img-wrapper"><img src="changan_q05.png" alt="Changan Q05" class="car-img"></div>
                 <h3 class="car-title">Changan Q05</h3>
                 <div class="car-specs">
                     <div class="spec-item"><span class="spec-label">Батарея</span><span class="spec-value">60 кВт⋅ч</span></div>
@@ -536,12 +516,8 @@
                 </div>
                 <div class="btn-outline">Подробнее</div>
             </div>
-
-            <!-- Авто 4: Changan A06 -->
             <div class="car-card" onclick="openModal('a06')">
-                <div class="car-img-wrapper">
-                    <img src="changan_a06.png" alt="Changan A06" class="car-img">
-                </div>
+                <div class="car-img-wrapper"><img src="changan_a06.png" alt="Changan A06" class="car-img"></div>
                 <h3 class="car-title">Changan A06</h3>
                 <div class="car-specs">
                     <div class="spec-item"><span class="spec-label">Батарея</span><span class="spec-value">55 кВт⋅ч</span></div>
@@ -551,75 +527,144 @@
                 </div>
                 <div class="btn-outline">Подробнее</div>
             </div>
-
         </div>
     </section>
 
-    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ АВТО -->
+    <section class="calculator-section" id="calculator">
+        <h2 class="section-title">Калькулятор растаможки</h2>
+        <p class="calc-subtitle">Точный расчет таможенных платежей с учетом актуального курса НБРБ</p>
+        
+        <div class="calc-wrapper">
+            <div class="calculator-form">
+                
+                <div class="calc-field">
+                    <label class="calc-label">Стоимость авто</label>
+                    <div class="calc-input-wrap">
+                        <input type="number" id="carPrice" class="calc-input" placeholder="Введите стоимость">
+                        <span class="calc-currency">€</span>
+                    </div>
+                </div>
+
+                <div class="calc-field">
+                    <label class="calc-label">Возраст авто</label>
+                    <div class="calc-select-grid">
+                        <div class="calc-option">
+                            <input type="radio" name="age" id="newCar" value="new" checked>
+                            <label for="newCar">Новый / до 3 лет</label>
+                        </div>
+                        <div class="calc-option">
+                            <input type="radio" name="age" id="middleCar" value="middle">
+                            <label for="middleCar">3–5 лет</label>
+                        </div>
+                        <div class="calc-option">
+                            <input type="radio" name="age" id="oldCar" value="old">
+                            <label for="oldCar">Старше 5 лет</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calc-field">
+                    <label class="calc-label">Тип двигателя</label>
+                    <div class="calc-select-grid">
+                        <div class="calc-option">
+                            <input type="radio" name="engineType" id="ice" value="ice" checked>
+                            <label for="ice">ДВС</label>
+                        </div>
+                        <div class="calc-option">
+                            <input type="radio" name="engineType" id="electric" value="electric">
+                            <label for="electric">Электро</label>
+                        </div>
+                        <div class="calc-option">
+                            <input type="radio" name="engineType" id="hybrid" value="hybrid">
+                            <label for="hybrid">Последовательный гибрид</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calc-checkbox-block" id="benefitBlock">
+                    <label class="calc-checkbox">
+                        <input type="checkbox" id="benefitCheckbox">
+                        <span class="calc-checkmark"></span>
+                        <span class="calc-checkbox-text">Таможенная льгота 50% (Указ №140)</span>
+                    </label>
+                </div>
+
+                <div class="calc-field hidden" id="engineVolumeField">
+                    <label class="calc-label">Объем двигателя (см³)</label>
+                    <div class="calc-input-wrap">
+                        <input type="number" id="engineVolume" class="calc-input" placeholder="Например: 2000">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="result-card">
+                <h2 class="res-title">Результат</h2>
+                
+                <div class="res-list">
+                    <div class="res-item">
+                        <span class="res-name">Таможенная пошлина</span>
+                        <span class="res-value" id="dutyValue">0 €</span>
+                    </div>
+                    <div class="res-item">
+                        <span class="res-name">Таможенный сбор</span>
+                        <span class="res-value">120 BYN</span>
+                    </div>
+                    <div class="res-item">
+                        <span class="res-name">Утилизационный сбор</span>
+                        <span class="res-value" id="utilValue">625 BYN</span>
+                    </div>
+                    <div class="res-item">
+                        <span class="res-name">НДС</span>
+                        <span class="res-value" id="ndsValue">0 €</span>
+                    </div>
+                    <div class="res-item">
+                        <span class="res-name">Расходы на СВХ</span>
+                        <span class="res-value">700 BYN</span>
+                    </div>
+                </div>
+
+                <div class="res-total">
+                    <div class="res-item">
+                        <span class="res-name">Итого</span>
+                        <span class="res-value" id="totalValue">0 BYN</span>
+                    </div>
+                </div>
+
+                <div class="res-rate" id="rateInfo">
+                    Загрузка курса НБРБ...
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="modal-overlay" id="carModal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
-            
-            <div class="modal-img-col">
-                <img src="" alt="Car Image" id="modalImg">
-            </div>
-            
+            <div class="modal-img-col"><img src="" alt="Car Image" id="modalImg"></div>
             <div class="modal-info-col">
                 <h3 class="modal-title" id="modalTitle">Название авто</h3>
                 <p class="modal-desc" id="modalDesc">Описание автомобиля.</p>
-                
                 <div class="modal-specs">
-                    <div class="spec-item">
-                        <span class="spec-label">Емкость батареи:</span>
-                        <span class="spec-value" id="modalBat">--</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Запас хода:</span>
-                        <span class="spec-value" id="modalRange">--</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Мощность:</span>
-                        <span class="spec-value" id="modalHp">--</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Привод:</span>
-                        <span class="spec-value" id="modalDrive">--</span>
-                    </div>
+                    <div class="spec-item"><span class="spec-label">Емкость батареи:</span><span class="spec-value" id="modalBat">--</span></div>
+                    <div class="spec-item"><span class="spec-label">Запас хода:</span><span class="spec-value" id="modalRange">--</span></div>
+                    <div class="spec-item"><span class="spec-label">Мощность:</span><span class="spec-value" id="modalHp">--</span></div>
+                    <div class="spec-item"><span class="spec-label">Привод:</span><span class="spec-value" id="modalDrive">--</span></div>
                 </div>
-                
                 <a href="#callback" class="btn-primary" style="width: 100%; text-align: center; padding: 15px 0;">Оставить заявку</a>
             </div>
         </div>
     </div>
 
-    <!-- СКРИПТ ДЛЯ УПРАВЛЕНИЯ ПОПАПОМ -->
     <script>
-        // База данных автомобилей (можешь менять тексты и цифры здесь)
+        /* ================================
+           ЛОГИКА МОДАЛЬНОГО ОКНА КАТАЛОГА
+           ================================ */
         const carData = {
-            'sealion06': {
-                title: 'BYD Sea Lion 06',
-                img: 'sealion06.png',
-                desc: 'Современный кроссовер нового поколения. Оснащен передовой архитектурой e-Platform 3.0 Evo с технологией интеграции батареи CTB (Cell-to-Body). Это инновационное решение полностью устраняет уязвимости нижней части кузова и обеспечивает увеличенный дорожный просвет по сравнению с предыдущими моделями, гарантируя максимальную безопасность и великолепную проходимость.',
-                bat: '71.8 кВт⋅ч', range: '510 км', hp: '218 л.с.', drive: 'Передний'
-            },
-            'sealion07': {
-                title: 'BYD Sea Lion 07',
-                img: 'sealion07.png',
-                desc: 'Стильный электрический фастбэк-кроссовер с выдающейся аэродинамикой и премиальным интерьером. Воплощает в себе будущее электрического транспорта с передовыми системами автономного вождения.',
-                bat: '80.6 кВт⋅ч', range: '610 км', hp: '313 л.с.', drive: 'Задний'
-            },
-            'q05': {
-                title: 'Changan Q05',
-                img: 'changan_q05.png',
-                desc: 'Динамичный и технологичный городской кроссовер с выразительным футуристичным дизайном. Идеальный баланс комфорта, технологий и эффективности для ежедневных поездок.',
-                bat: '60 кВт⋅ч', range: '450 км', hp: '215 л.с.', drive: 'Передний'
-            },
-            'a06': {
-                title: 'Changan A06',
-                img: 'changan_a06.png',
-                desc: 'Спортивный лифтбек, притягивающий взгляды. Отличается агрессивным экстерьером, продвинутыми электронными ассистентами и превосходной динамикой разгона.',
-                bat: '55 кВт⋅ч', range: '505 км', hp: '258 л.с.', drive: 'Передний'
-            }
+            'sealion06': { title: 'BYD Sea Lion 06', img: 'sealion06.png', desc: 'Современный кроссовер нового поколения. Оснащен передовой архитектурой e-Platform 3.0 Evo с технологией интеграции батареи CTB (Cell-to-Body).', bat: '71.8 кВт⋅ч', range: '510 км', hp: '218 л.с.', drive: 'Передний' },
+            'sealion07': { title: 'BYD Sea Lion 07', img: 'sealion07.png', desc: 'Стильный электрический фастбэк-кроссовер с выдающейся аэродинамикой и премиальным интерьером. Воплощает в себе будущее электрического транспорта.', bat: '80.6 кВт⋅ч', range: '610 км', hp: '313 л.с.', drive: 'Задний' },
+            'q05': { title: 'Changan Q05', img: 'changan_q05.png', desc: 'Динамичный и технологичный городской кроссовер с выразительным футуристичным дизайном. Идеальный баланс комфорта и эффективности.', bat: '60 кВт⋅ч', range: '450 км', hp: '215 л.с.', drive: 'Передний' },
+            'a06': { title: 'Changan A06', img: 'changan_a06.png', desc: 'Спортивный лифтбек, притягивающий взгляды. Отличается агрессивным экстерьером, продвинутыми электронными ассистентами и превосходной динамикой разгона.', bat: '55 кВт⋅ч', range: '505 км', hp: '258 л.с.', drive: 'Передний' }
         };
 
         const modal = document.getElementById('carModal');
@@ -627,8 +672,6 @@
         function openModal(carId) {
             const data = carData[carId];
             if (!data) return;
-
-            // Заполняем данные
             document.getElementById('modalTitle').textContent = data.title;
             document.getElementById('modalImg').src = data.img;
             document.getElementById('modalDesc').textContent = data.desc;
@@ -636,23 +679,148 @@
             document.getElementById('modalRange').textContent = data.range;
             document.getElementById('modalHp').textContent = data.hp;
             document.getElementById('modalDrive').textContent = data.drive;
-
-            // Показываем окно
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Убираем скролл сайта
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeModal() {
             modal.classList.remove('active');
-            document.body.style.overflow = ''; // Возвращаем скролл
+            document.body.style.overflow = ''; 
         }
 
-        // Закрытие модального окна при клике вне карточки
         modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
+            if (e.target === modal) closeModal();
         });
+
+        /* ================================
+           ЛОГИКА КАЛЬКУЛЯТОРА РАСТАМОЖКИ
+           ================================ */
+        let EUR_RATE = 0;
+
+        const engineTypeInputs = document.querySelectorAll('input[name="engineType"]');
+        const ageInputs = document.querySelectorAll('input[name="age"]');
+        const carPriceInput = document.getElementById('carPrice');
+        const engineVolumeInput = document.getElementById('engineVolume');
+        const benefitCheckbox = document.getElementById('benefitCheckbox');
+        const engineVolumeField = document.getElementById('engineVolumeField');
+        const benefitBlock = document.getElementById('benefitBlock');
+        const dutyValue = document.getElementById('dutyValue');
+        const utilValue = document.getElementById('utilValue');
+        const ndsValue = document.getElementById('ndsValue');
+        const totalValue = document.getElementById('totalValue');
+        const rateInfo = document.getElementById('rateInfo');
+
+        // Получение курса НБРБ
+        async function loadCurrencyRate() {
+            try {
+                const response = await fetch('https://api.nbrb.by/exrates/rates/EUR?parammode=2');
+                const data = await response.json();
+                EUR_RATE = data.Cur_OfficialRate;
+                rateInfo.innerHTML = `Курс НБРБ: 1 EUR = ${EUR_RATE.toFixed(4)} BYN`;
+                calculateResult();
+            } catch (error) {
+                console.log(error);
+                EUR_RATE = 3.35; // Резервный курс
+                rateInfo.innerHTML = 'Курс НБРБ временно недоступен (используется резервный)';
+            }
+        }
+
+        // Обновление видимости полей
+        function updateForm() {
+            const selectedEngine = document.querySelector('input[name="engineType"]:checked').value;
+            if (selectedEngine === 'ice') {
+                benefitBlock.style.display = 'block';
+                engineVolumeField.classList.remove('hidden');
+            } else {
+                benefitBlock.style.display = 'none';
+                engineVolumeField.classList.add('hidden');
+                engineVolumeInput.value = '';
+                benefitCheckbox.checked = false;
+            }
+            calculateResult();
+        }
+
+        // Расчет пошлины ДВС
+        function calculateDuty(price, volume, age) {
+            let duty = 0;
+            if (age === 'new') {
+                if (price <= 8500) duty = Math.max(price * 0.54, volume * 2.5);
+                else if (price <= 16700) duty = Math.max(price * 0.48, volume * 3.5);
+                else if (price <= 42300) duty = Math.max(price * 0.48, volume * 5.5);
+                else if (price <= 84500) duty = Math.max(price * 0.48, volume * 7.5);
+                else if (price <= 169000) duty = Math.max(price * 0.48, volume * 15);
+                else duty = Math.max(price * 0.48, volume * 20);
+            }
+            if (age === 'middle') {
+                if (volume <= 1000) duty = volume * 1.5;
+                else if (volume <= 1500) duty = volume * 1.7;
+                else if (volume <= 1800) duty = volume * 2.5;
+                else if (volume <= 2300) duty = volume * 2.7;
+                else if (volume <= 3000) duty = volume * 3;
+                else duty = volume * 3.6;
+            }
+            if (age === 'old') {
+                if (volume <= 1000) duty = volume * 3;
+                else if (volume <= 1500) duty = volume * 3.2;
+                else if (volume <= 1800) duty = volume * 3.5;
+                else if (volume <= 2300) duty = volume * 4.8;
+                else if (volume <= 3000) duty = volume * 5;
+                else duty = volume * 5.7;
+            }
+            return duty;
+        }
+
+        // Главная функция расчета
+        function calculateResult() {
+            const selectedEngine = document.querySelector('input[name="engineType"]:checked').value;
+            const selectedAge = document.querySelector('input[name="age"]:checked').value;
+            const carPrice = Number(carPriceInput.value) || 0;
+            const engineVolume = Number(engineVolumeInput.value) || 0;
+            const hasBenefit = benefitCheckbox.checked;
+
+            // Утильсбор
+            let utilFee = 625;
+            if (selectedAge === 'middle' || selectedAge === 'old') {
+                utilFee = 1282;
+            }
+            utilValue.textContent = `${utilFee.toLocaleString('ru-RU')} BYN`;
+
+            // Пошлина
+            let duty = 0;
+            if (selectedEngine === 'ice') {
+                duty = calculateDuty(carPrice, engineVolume, selectedAge);
+                if (hasBenefit) duty = duty / 2;
+            }
+            if (selectedEngine === 'hybrid') {
+                duty = carPrice * 0.15;
+            }
+            dutyValue.textContent = `${Math.round(duty).toLocaleString('ru-RU')} €`;
+
+            // НДС
+            let nds = 0;
+            if (selectedEngine === 'hybrid') {
+                nds = (carPrice + duty) * 0.20;
+            }
+            ndsValue.textContent = `${Math.round(nds).toLocaleString('ru-RU')} €`;
+
+            // Итого в BYN
+            const euroTotal = duty + nds;
+            const bynTotal = (euroTotal * EUR_RATE) + utilFee + 120 + 700;
+            
+            totalValue.innerHTML = `${Math.round(bynTotal).toLocaleString('ru-RU')} BYN`;
+        }
+
+        // Слушатели событий
+        engineTypeInputs.forEach(input => input.addEventListener('change', updateForm));
+        ageInputs.forEach(input => input.addEventListener('change', calculateResult));
+        benefitCheckbox.addEventListener('change', calculateResult);
+        carPriceInput.addEventListener('input', calculateResult);
+        engineVolumeInput.addEventListener('input', calculateResult);
+
+        // Инициализация
+        updateForm();
+        loadCurrencyRate();
+
     </script>
 </body>
 </html>
