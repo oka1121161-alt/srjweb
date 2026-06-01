@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRJ MOTORS - Авто из Китая</title>
+    
+    <!-- Подключение шрифта Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Подключение иконок FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Фирменные цвета */
+            --bg-dark: #070707;
+            --bg-panel: #111111;
+            --neon-green: #bfff00; 
+            --text-light: #f5f5f5;
+            --text-muted: #888888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            /* Легкий футуристичный градиент на фоне */
+            background-image: radial-gradient(circle at 50% 0%, #1a2210 0%, #070707 40%);
+            min-height: 200vh; /* Для демонстрации прокрутки */
+        }
+
+        /* ================================
+           ВЕРХНЯЯ ПАНЕЛЬ (TOP BAR)
+           ================================ */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 40px;
+            background-color: var(--bg-panel);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .schedule {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .brand-text {
+            font-size: 20px; 
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+
+        .brand-text .highlight {
+            color: var(--neon-green);
+            text-shadow: 0 0 10px rgba(191, 255, 0, 0.4); 
+        }
+
+        .socials {
+            display: flex;
+            gap: 12px;
+        }
+
+        .socials a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            background-color: transparent;
+            color: var(--neon-green); 
+            text-decoration: none;
+            border-radius: 50%;
+            border: 1px solid rgba(191, 255, 0, 0.3); 
+            transition: all 0.3s ease;
+        }
+
+        .socials a:hover {
+            background-color: var(--neon-green);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(191, 255, 0, 0.6);
+            transform: scale(1.1);
+        }
+
+        /* ================================
+           ГЛАВНОЕ МЕНЮ (MAIN NAVIGATION)
+           ================================ */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 40px;
+            /* Эффект стекла (Glassmorphism) */
+            background-color: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(191, 255, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            /* Меню прилипает к верху при скролле */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Блоки ссылок */
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .left-links {
+            margin-right: 50px;
+        }
+
+        .right-links {
+            margin-left: 50px;
+        }
+
+        /* Стили самих ссылок */
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        /* Футуристичное подчеркивание при наведении */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
+            transform: scaleX(0); /* Скрыто по умолчанию */
+            transform-origin: center;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Эффект при наведении на ссылку */
+        .nav-links a:hover {
+            color: var(--neon-green);
+            text-shadow: 0 0 8px rgba(191, 255, 0, 0.4);
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1); /* Линия разворачивается от центра */
+        }
+
+        /* Логотип по центру */
+        .nav-logo img {
+            width: 85px;
+            height: 85px;
+            border-radius: 22px; /* Закругленные углы */
+            object-fit: cover;
+            border: 2px solid rgba(191, 255, 0, 0.4);
+            box-shadow: 0 0 20px rgba(191, 255, 0, 0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            /* Чтобы логотип визуально немного выступал */
+            position: relative;
+            z-index: 2;
+        }
+
+        .nav-logo img:hover {
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 10px 30px rgba(191, 255, 0, 0.7);
+            border-color: var(--neon-green);
+        }
+
+        /* ================================
+           АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ
+           ================================ */
+        @media (max-width: 1100px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+                text-align: center;
+            }
+            .main-nav {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .left-links, .right-links {
+                margin: 0;
+            }
+            /* Логотип поднимаем наверх на мобильных */
+            .nav-logo {
+                order: -1; 
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ВЕРХНЕЕ ПОДМЕНЮ (Top Bar) -->
+    <div class="top-bar">
+        <div class="schedule">ПН - ВС 9-18, БЕЗ ВЫХОДНЫХ</div>
+        <div class="brand">
+            <div class="brand-text">
+                SRJ MOTORS - <span class="highlight">АВТО ИЗ КИТАЯ</span> С ГАРАНТИЕЙ
+            </div>
+        </div>
+        <div class="socials">
+            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+    </div>
+
+    <!-- ГЛАВНОЕ МЕНЮ (Main Navigation) -->
+    <nav class="main-nav">
+        
+        <!-- Левые ссылки -->
+        <div class="nav-links left-links">
+            <a href="#">Главная</a>
+            <a href="#">Каталог</a>
+            <a href="#">Калькулятор растаможки</a>
+        </div>
+
+        <!-- Центральный логотип -->
+        <div class="nav-logo">
+            <a href="#">
+                <img src="srjlo-2.jpg" alt="SRJ Motors Logo">
+            </a>
+        </div>
+
+        <!-- Правые ссылки -->
+        <div class="nav-links right-links">
+            <a href="#">О нас</a>
+            <a href="#">Отзывы</a>
+            <a href="#">Контакты</a>
+        </div>
+
+    </nav>
+
+    <!-- Пример контента, чтобы показать эффект прилипания меню при прокрутке -->
+    <div style="padding: 100px 40px; text-align: center; color: #333;">
+        <h2>(Здесь будет контент сайта)</h2>
+        <p>Прокрути вниз, чтобы увидеть, как меню фиксируется наверху.</p>
+    </div>
+
+</body>
+</html>
