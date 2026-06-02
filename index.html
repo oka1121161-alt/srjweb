@@ -262,7 +262,7 @@
 
         /* --- СЕКЦИЯ О НАС (НАШИ ПРЕДСТАВИТЕЛЬСТВА) --- */
         .about-section {
-            padding: 80px 20px 100px;
+            padding: 80px 20px 60px;
             background-image: radial-gradient(circle at 50% 0%, #1a2210 0%, #070707 60%);
         }
 
@@ -354,10 +354,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Класс для кликабельного видео */
-        .video-interactive {
-            cursor: pointer;
-        }
+        .video-interactive { cursor: pointer; }
 
         .office-media video, 
         .office-media img {
@@ -373,63 +370,56 @@
             transform: scale(1.05);
         }
 
-        /* Кнопка Play поверх видео */
         .play-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(10, 10, 10, 0.6);
-            border: 2px solid var(--neon-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--neon-green);
-            font-size: 24px;
-            transition: all 0.3s ease;
-            z-index: 10;
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 60px; height: 60px; background: rgba(10, 10, 10, 0.6); border: 2px solid var(--neon-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: var(--neon-green); font-size: 24px; transition: all 0.3s ease; z-index: 10;
+            backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
         }
 
         .video-interactive:hover .play-overlay {
-            transform: translate(-50%, -50%) scale(1.1);
-            background: var(--neon-green);
-            color: var(--bg-dark);
-            box-shadow: 0 0 20px rgba(191, 255, 0, 0.6);
+            transform: translate(-50%, -50%) scale(1.1); background: var(--neon-green);
+            color: var(--bg-dark); box-shadow: 0 0 20px rgba(191, 255, 0, 0.6);
         }
 
-        .office-info {
-            padding: 25px;
-            text-align: center;
-        }
+        .office-info { padding: 25px; text-align: center; }
+        .office-title { font-size: 1.2rem; font-weight: 800; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+        .office-address { color: var(--text-muted); font-size: 13px; font-weight: 500; line-height: 1.5; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .office-address i { color: var(--neon-green); }
 
-        .office-title {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+        /* --- СЕКЦИЯ КОМАНДЫ --- */
+        .team-section { padding: 40px 0 100px; background-color: var(--bg-dark); width: 100%; }
+        .team-slider {
+            display: flex; gap: 30px; padding: 20px 50px 40px; overflow-x: auto;
+            scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--neon-green) var(--bg-panel);
         }
-
-        .office-address {
-            color: var(--text-muted);
-            font-size: 13px;
-            font-weight: 500;
-            line-height: 1.5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+        .team-slider::-webkit-scrollbar { height: 8px; }
+        .team-slider::-webkit-scrollbar-track { background: var(--bg-panel); border-radius: 10px; margin: 0 50px; }
+        .team-slider::-webkit-scrollbar-thumb { background-color: var(--neon-green); border-radius: 10px; box-shadow: 0 0 10px var(--neon-green); }
+        
+        .team-card {
+            flex: 0 0 calc(25% - 22.5px); min-width: 250px; background: linear-gradient(145deg, #161616 0%, #0a0a0a 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 30px 20px; text-align: center;
+            scroll-snap-align: start; transition: all 0.4s ease;
         }
-
-        .office-address i {
-            color: var(--neon-green);
+        .team-card:hover {
+            transform: translateY(-10px); border-color: rgba(191, 255, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(191, 255, 0, 0.1);
         }
+        .team-img-wrapper {
+            width: 150px; height: 150px; margin: 0 auto 20px; border-radius: 50%;
+            overflow: hidden; border: 3px solid rgba(191, 255, 0, 0.2);
+            padding: 5px; background: var(--bg-panel);
+        }
+        .team-img-wrapper img {
+            width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+            transition: transform 0.5s ease;
+        }
+        .team-card:hover .team-img-wrapper img { transform: scale(1.1); }
+        .team-card:hover .team-img-wrapper { border-color: var(--neon-green); box-shadow: 0 0 15px rgba(191, 255, 0, 0.3); }
+        .team-name { font-size: 1.3rem; font-weight: 800; color: var(--text-light); margin-bottom: 8px; letter-spacing: 0.5px; }
+        .team-role { font-size: 13px; font-weight: 600; color: var(--neon-green); text-transform: uppercase; letter-spacing: 1px; }
 
         /* --- МОДАЛЬНЫЕ ОКНА --- */
         .modal-overlay {
@@ -439,7 +429,6 @@
         }
         .modal-overlay.active { opacity: 1; visibility: visible; }
         
-        /* Модалка для авто */
         .modal-content {
             background: var(--bg-panel); width: 90%; max-width: 800px; border-radius: 20px;
             border: 1px solid rgba(191, 255, 0, 0.3); box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(191, 255, 0, 0.05);
@@ -459,25 +448,12 @@
             border-radius: 0; background: transparent; border-left: none; border-right: none; border-top: none;
         }
 
-        /* Модалка для видео */
         .video-modal-content {
-            display: block;
-            padding: 20px;
-            padding-top: 50px;
-            max-width: 900px;
-            width: 90%;
-            background: rgba(16, 16, 16, 0.9);
+            display: block; padding: 20px; padding-top: 50px; max-width: 900px; width: 90%; background: rgba(16, 16, 16, 0.9);
         }
-        .video-modal-content .modal-close {
-            top: 10px;
-            right: 20px;
-        }
+        .video-modal-content .modal-close { top: 10px; right: 20px; }
         .video-modal-content video {
-            width: 100%;
-            border-radius: 10px;
-            display: block;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            outline: none;
+            width: 100%; border-radius: 10px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.8); outline: none;
         }
 
         /* --- АДАПТИВНОСТЬ --- */
@@ -492,7 +468,7 @@
             .left-links, .right-links { padding: 0; }
             .nav-logo { order: -1; margin-bottom: 10px; }
             .hero h1 { font-size: 2.5rem; }
-            .car-card { flex: 0 0 calc(50% - 15px); }
+            .car-card, .team-card { flex: 0 0 calc(50% - 15px); }
             .modal-content:not(.video-modal-content) { flex-direction: column; padding: 30px 20px; }
             .modal-img-col { height: 200px; margin-bottom: 20px; }
             .calc-wrapper { grid-template-columns: 1fr; }
@@ -507,7 +483,7 @@
         }
 
         @media (max-width: 768px) {
-            .car-card { flex: 0 0 85%; }
+            .car-card, .team-card { flex: 0 0 85%; }
             .calculator-form, .result-card { padding: 25px; }
             .calc-select-grid { grid-template-columns: 1fr; }
             .about-grid { grid-template-columns: 1fr; }
@@ -544,7 +520,7 @@
             <a href="#"><img src="srjlo-2.png" alt="SRJ Motors Logo"></a>
         </div>
         <div class="nav-links right-links">
-            <a href="#about">О нас</a> <a href="#">Отзывы</a> <a href="#">Контакты</a>
+            <a href="#about">О нас</a> <a href="#team">Команда</a> <a href="#">Контакты</a>
         </div>
     </nav>
 
@@ -794,7 +770,6 @@
 
         <div class="about-grid">
             <div class="office-card">
-                <!-- Блок с фоновым видео и кнопкой play поверх -->
                 <div class="office-media video-interactive" onclick="openVideoModal('office-china.mp4')">
                     <video src="office-china.mp4" autoplay loop muted playsinline></video>
                     <div class="play-overlay">
@@ -825,6 +800,58 @@
                     <h3 class="office-title">Баку, Азербайджан</h3>
                     <p class="office-address"><i class="fas fa-map-marker-alt"></i> г. Баку, пр. Гейдара Алиева, 152</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ НАША КОМАНДА -->
+    <section class="team-section" id="team">
+        <h2 class="section-title">Наша команда</h2>
+        
+        <div class="team-slider">
+            <!-- Сотрудник 1 -->
+            <div class="team-card">
+                <div class="team-img-wrapper">
+                    <img src="team1.png" alt="Директор">
+                </div>
+                <h3 class="team-name">Александр</h3>
+                <p class="team-role">Директор</p>
+            </div>
+            
+            <!-- Сотрудник 2 -->
+            <div class="team-card">
+                <div class="team-img-wrapper">
+                    <img src="team2.png" alt="Менеджер по продажам">
+                </div>
+                <h3 class="team-name">Максим</h3>
+                <p class="team-role">Менеджер по продажам</p>
+            </div>
+            
+            <!-- Сотрудник 3 -->
+            <div class="team-card">
+                <div class="team-img-wrapper">
+                    <img src="team3.png" alt="Менеджер по продажам">
+                </div>
+                <h3 class="team-name">Елена</h3>
+                <p class="team-role">Менеджер по продажам</p>
+            </div>
+            
+            <!-- Сотрудник 4 -->
+            <div class="team-card">
+                <div class="team-img-wrapper">
+                    <img src="team4.png" alt="Переводчик">
+                </div>
+                <h3 class="team-name">Анна</h3>
+                <p class="team-role">Переводчик</p>
+            </div>
+
+            <!-- Сотрудник 5 -->
+            <div class="team-card">
+                <div class="team-img-wrapper">
+                    <img src="team5.png" alt="Логист">
+                </div>
+                <h3 class="team-name">Дмитрий</h3>
+                <p class="team-role">Логист</p>
             </div>
         </div>
     </section>
