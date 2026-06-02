@@ -260,13 +260,12 @@
         .res-total .res-value { font-size: 24px; color: var(--neon-green); text-shadow: 0 0 15px rgba(191, 255, 0, 0.4); }
         .res-rate { margin-top: 20px; text-align: center; color: var(--text-muted); font-size: 12px; font-weight: 600; }
 
-        /* --- СЕКЦИЯ О НАС (НАШИ ОФИСЫ) --- */
+        /* --- СЕКЦИЯ О НАС (НАШИ ПРЕДСТАВИТЕЛЬСТВА) --- */
         .about-section {
             padding: 80px 20px 100px;
             background-image: radial-gradient(circle at 50% 0%, #1a2210 0%, #070707 60%);
         }
 
-        /* Информационная панель "О нас" */
         .about-info-panel {
             max-width: 1280px;
             margin: 0 auto 50px;
@@ -284,7 +283,7 @@
             flex: 1;
             padding: 40px;
             display: flex;
-            align-items: center; /* Выравнивание по центру по вертикали */
+            align-items: center; 
             gap: 20px;
         }
 
@@ -311,7 +310,7 @@
             font-size: 14px;
             line-height: 1.6;
             font-weight: 500;
-            margin: 0; /* Убираем отступы для четкого центрирования */
+            margin: 0; 
         }
 
         .about-info-content .accent {
@@ -355,6 +354,11 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
+        /* Класс для кликабельного видео */
+        .video-interactive {
+            cursor: pointer;
+        }
+
         .office-media video, 
         .office-media img {
             width: 100%;
@@ -367,6 +371,35 @@
         .office-card:hover .office-media video,
         .office-card:hover .office-media img {
             transform: scale(1.05);
+        }
+
+        /* Кнопка Play поверх видео */
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(10, 10, 10, 0.6);
+            border: 2px solid var(--neon-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-green);
+            font-size: 24px;
+            transition: all 0.3s ease;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .video-interactive:hover .play-overlay {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--neon-green);
+            color: var(--bg-dark);
+            box-shadow: 0 0 20px rgba(191, 255, 0, 0.6);
         }
 
         .office-info {
@@ -398,20 +431,22 @@
             color: var(--neon-green);
         }
 
-        /* --- МОДАЛЬНОЕ ОКНО --- */
+        /* --- МОДАЛЬНЫЕ ОКНА --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px); z-index: 9999;
             display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.4s ease;
         }
         .modal-overlay.active { opacity: 1; visibility: visible; }
+        
+        /* Модалка для авто */
         .modal-content {
             background: var(--bg-panel); width: 90%; max-width: 800px; border-radius: 20px;
             border: 1px solid rgba(191, 255, 0, 0.3); box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(191, 255, 0, 0.05);
             padding: 40px; position: relative; transform: translateY(30px) scale(0.95); transition: all 0.4s ease; display: flex; gap: 30px;
         }
         .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
-        .modal-close { position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--text-muted); cursor: pointer; transition: color 0.3s ease; }
+        .modal-close { position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--text-muted); cursor: pointer; transition: color 0.3s ease; z-index: 10;}
         .modal-close:hover { color: var(--neon-green); }
         .modal-img-col { flex: 1; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle, rgba(191,255,0,0.1) 0%, transparent 70%); }
         .modal-img-col img { width: 100%; filter: drop-shadow(0 20px 20px rgba(0,0,0,0.8)); }
@@ -422,6 +457,27 @@
         .modal-specs .spec-item {
             display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
             border-radius: 0; background: transparent; border-left: none; border-right: none; border-top: none;
+        }
+
+        /* Модалка для видео */
+        .video-modal-content {
+            display: block;
+            padding: 20px;
+            padding-top: 50px;
+            max-width: 900px;
+            width: 90%;
+            background: rgba(16, 16, 16, 0.9);
+        }
+        .video-modal-content .modal-close {
+            top: 10px;
+            right: 20px;
+        }
+        .video-modal-content video {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            outline: none;
         }
 
         /* --- АДАПТИВНОСТЬ --- */
@@ -437,7 +493,7 @@
             .nav-logo { order: -1; margin-bottom: 10px; }
             .hero h1 { font-size: 2.5rem; }
             .car-card { flex: 0 0 calc(50% - 15px); }
-            .modal-content { flex-direction: column; padding: 30px 20px; }
+            .modal-content:not(.video-modal-content) { flex-direction: column; padding: 30px 20px; }
             .modal-img-col { height: 200px; margin-bottom: 20px; }
             .calc-wrapper { grid-template-columns: 1fr; }
             .result-card { position: relative; top: 0; }
@@ -712,9 +768,9 @@
         </div>
     </section>
 
-    <!-- СЕКЦИЯ О НАС (НАШИ ОФИСЫ) -->
+    <!-- СЕКЦИЯ О НАС (НАШИ ПРЕДСТАВИТЕЛЬСТВА) -->
     <section class="about-section" id="about">
-        <h2 class="section-title">Наши представительства</h2>
+        <h2 class="section-title">Наши Представительства</h2>
         
         <div class="about-info-panel">
             <div class="about-info-block">
@@ -738,8 +794,12 @@
 
         <div class="about-grid">
             <div class="office-card">
-                <div class="office-media">
+                <!-- Блок с фоновым видео и кнопкой play поверх -->
+                <div class="office-media video-interactive" onclick="openVideoModal('office-china.mp4')">
                     <video src="office-china.mp4" autoplay loop muted playsinline></video>
+                    <div class="play-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
                 </div>
                 <div class="office-info">
                     <h3 class="office-title">Чэнду, Китай</h3>
@@ -785,6 +845,14 @@
                 </div>
                 <a href="#callback" class="btn-primary" style="width: 100%; text-align: center; padding: 15px 0;">Оставить заявку</a>
             </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ВИДЕО ОФИСА -->
+    <div class="modal-overlay" id="videoModal">
+        <div class="modal-content video-modal-content">
+            <span class="modal-close" onclick="closeVideoModal()">&times;</span>
+            <video id="popupVideoPlayer" controls playsinline></video>
         </div>
     </div>
 
@@ -947,6 +1015,30 @@
 
         updateForm();
         loadCurrencyRate();
+
+        /* ================================
+           ЛОГИКА ВИДЕО ПОПАПА
+           ================================ */
+        const videoModal = document.getElementById('videoModal');
+        const popupVideoPlayer = document.getElementById('popupVideoPlayer');
+
+        function openVideoModal(videoSrc) {
+            popupVideoPlayer.src = videoSrc;
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            popupVideoPlayer.play();
+        }
+
+        function closeVideoModal() {
+            videoModal.classList.remove('active');
+            document.body.style.overflow = '';
+            popupVideoPlayer.pause();
+            popupVideoPlayer.src = '';
+        }
+
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) closeVideoModal();
+        });
     </script>
 </body>
 </html>
