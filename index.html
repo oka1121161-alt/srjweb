@@ -197,14 +197,13 @@
         
         .catalog-slider, .team-slider, .reviews-slider {
             display: flex; gap: 30px; 
-            padding: 20px 50px 40px 50px; /* Отступы слева и справа */
+            padding: 20px 50px 40px 50px;
             overflow-x: auto;
             scroll-snap-type: x mandatory; 
             scroll-padding: 50px;
             scrollbar-width: thin; 
             scrollbar-color: var(--neon-green) var(--bg-panel);
         }
-        /* Фикс для Safari/iOS */
         .catalog-slider::after, .team-slider::after, .reviews-slider::after { content: ''; padding-right: 1px; }
         
         .catalog-slider::-webkit-scrollbar, .team-slider::-webkit-scrollbar, .reviews-slider::-webkit-scrollbar { height: 8px; }
@@ -259,12 +258,22 @@
         .team-role { font-size: 13px; font-weight: 600; color: var(--neon-green); text-transform: uppercase; letter-spacing: 1px; }
 
         .review-card {
-            flex: 0 0 calc(25% - 22.5px); min-width: 260px; aspect-ratio: 9 / 16; background: var(--bg-panel);
-            border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; position: relative; 
-            scroll-snap-align: start; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.5); cursor: pointer;
+            flex: 0 0 calc(25% - 22.5px); 
+            min-width: 260px; 
+            aspect-ratio: 9 / 16;
+            background: var(--bg-panel);
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            position: relative; 
+            scroll-snap-align: start; 
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            cursor: pointer;
         }
         .review-card:hover {
-            transform: translateY(-10px); border-color: var(--neon-green);
+            transform: translateY(-10px); 
+            border-color: var(--neon-green);
             box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px rgba(191, 255, 0, 0.2);
         }
         .review-cover { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
@@ -433,10 +442,14 @@
 
         .video-modal-content { display: block; padding: 20px; padding-top: 50px; max-width: 900px; width: 90%; background: rgba(16, 16, 16, 0.9); }
         .video-modal-content .modal-close { top: 10px; right: 20px; }
-        .video-modal-content video {
-            width: 100%; max-height: 80vh; border-radius: 10px; display: block; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8); outline: none; object-fit: contain; background: #000;
+        .video-modal-content video, .video-modal-content iframe {
+            width: 100%; border-radius: 10px; display: block; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8); outline: none; background: #000;
         }
+        .video-modal-content iframe {
+            aspect-ratio: 9 / 16; margin: 0 auto; max-width: calc(80vh * 9 / 16); max-height: 80vh; border: none;
+        }
+        .video-modal-content video { max-height: 80vh; object-fit: contain; }
 
         /* --- АДАПТИВНОСТЬ --- */
         @media (max-width: 1250px) {
@@ -512,7 +525,6 @@
 
     <!-- ГЛАВНОЕ МЕНЮ (ДЕСКТОП) -->
     <nav class="main-nav">
-        <!-- Гамбургер кнопка (видна только на планшетах/телефонах <= 1250px) -->
         <div class="hamburger" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
@@ -800,7 +812,6 @@
                 </div>
                 <div class="condition-content">
                     <h3>Гибкая система оплаты</h3>
-                    <!-- Измененный текст -->
                     <p>Вы можете перевести средства напрямую на счет нашей компании <span class="accent">в Китае</span> или произвести оплату на счет нашей компании <span class="accent">в Республике Беларусь</span> — выбирайте тот способ, который удобнее Вам.</p>
                 </div>
             </div>
@@ -939,36 +950,37 @@
         <h2 class="section-title">Отзывы наших клиентов</h2>
         
         <div class="reviews-slider">
-            <div class="review-card video-interactive" onclick="openVideoModal('review1.mp4')">
-                <img src="cover1.png" alt="Отзыв 1" class="review-cover">
+            <!-- Ссылки на YouTube заменены на embed-формат. Обложки тянутся с ютуба автоматически если нет картинки -->
+            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
+                <img src="cover1.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 1" class="review-cover">
                 <div class="play-overlay"><i class="fas fa-play"></i></div>
             </div>
-            <div class="review-card video-interactive" onclick="openVideoModal('review2.mp4')">
-                <img src="cover2.png" alt="Отзыв 2" class="review-cover">
+            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
+                <img src="cover2.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 2" class="review-cover">
                 <div class="play-overlay"><i class="fas fa-play"></i></div>
             </div>
-            <div class="review-card video-interactive" onclick="openVideoModal('review3.mp4')">
-                <img src="cover3.png" alt="Отзыв 3" class="review-cover">
+            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
+                <img src="cover3.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 3" class="review-cover">
                 <div class="play-overlay"><i class="fas fa-play"></i></div>
             </div>
-            <div class="review-card video-interactive" onclick="openVideoModal('review4.mp4')">
-                <img src="cover4.png" alt="Отзыв 4" class="review-cover">
+            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
+                <img src="cover4.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 4" class="review-cover">
                 <div class="play-overlay"><i class="fas fa-play"></i></div>
             </div>
-            <div class="review-card video-interactive" onclick="openVideoModal('review5.mp4')">
-                <img src="cover5.png" alt="Отзыв 5" class="review-cover">
+            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
+                <img src="cover5.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 5" class="review-cover">
                 <div class="play-overlay"><i class="fas fa-play"></i></div>
             </div>
-            <div class="review-card video-interactive" onclick="openVideoModal('review6.mp4')">
-                <img src="cover6.png" alt="Отзыв 6" class="review-cover">
+            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
+                <img src="cover6.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 6" class="review-cover">
                 <div class="play-overlay"><i class="fas fa-play"></i></div>
             </div>
-            <div class="review-card video-interactive" onclick="openVideoModal('review7.mp4')">
-                <img src="cover7.png" alt="Отзыв 7" class="review-cover">
+            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
+                <img src="cover7.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 7" class="review-cover">
                 <div class="play-overlay"><i class="fas fa-play"></i></div>
             </div>
-            <div class="review-card video-interactive" onclick="openVideoModal('review8.mp4')">
-                <img src="cover8.png" alt="Отзыв 8" class="review-cover">
+            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
+                <img src="cover8.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 8" class="review-cover">
                 <div class="play-overlay"><i class="fas fa-play"></i></div>
             </div>
         </div>
@@ -1041,11 +1053,14 @@
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ВИДЕО -->
+    <!-- УНИВЕРСАЛЬНОЕ МОДАЛЬНОЕ ОКНО ДЛЯ ВИДЕО (Поддерживает и MP4 и YouTube) -->
     <div class="modal-overlay" id="videoModal">
         <div class="modal-content video-modal-content">
             <span class="modal-close" onclick="closeVideoModal()">&times;</span>
-            <video id="popupVideoPlayer" controls playsinline></video>
+            <!-- Для обычных видео (.mp4) -->
+            <video id="popupVideoPlayer" controls playsinline style="display: none;"></video>
+            <!-- Для видео с YouTube -->
+            <iframe id="popupYoutubePlayer" allow="autoplay; fullscreen" style="display: none;"></iframe>
         </div>
     </div>
 
@@ -1227,23 +1242,38 @@
         loadCurrencyRate();
 
         /* ================================
-           ЛОГИКА ВИДЕО ПОПАПА (ОФИСЫ И ОТЗЫВЫ)
+           ЛОГИКА УНИВЕРСАЛЬНОГО ВИДЕО ПОПАПА
            ================================ */
         const videoModal = document.getElementById('videoModal');
         const popupVideoPlayer = document.getElementById('popupVideoPlayer');
+        const popupYoutubePlayer = document.getElementById('popupYoutubePlayer');
 
         function openVideoModal(videoSrc) {
-            popupVideoPlayer.src = videoSrc;
+            // Проверяем, является ли ссылка ютубом
+            if (videoSrc.includes('youtube.com') || videoSrc.includes('youtu.be')) {
+                popupVideoPlayer.style.display = 'none';
+                popupYoutubePlayer.style.display = 'block';
+                popupYoutubePlayer.src = videoSrc;
+            } else {
+                // Если это обычное видео (.mp4)
+                popupYoutubePlayer.style.display = 'none';
+                popupVideoPlayer.style.display = 'block';
+                popupVideoPlayer.src = videoSrc;
+                popupVideoPlayer.play();
+            }
+            
             videoModal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            popupVideoPlayer.play();
         }
 
         function closeVideoModal() {
             videoModal.classList.remove('active');
             document.body.style.overflow = '';
+            
+            // Сбрасываем оба плеера
             popupVideoPlayer.pause();
             popupVideoPlayer.src = '';
+            popupYoutubePlayer.src = '';
         }
 
         videoModal.addEventListener('click', function(e) {
