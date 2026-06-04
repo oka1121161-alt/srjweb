@@ -998,9 +998,9 @@
             <h3 class="modal-title" style="text-align: center; font-size: 1.8rem; width: 100%;">Заказать звонок</h3>
             <p class="modal-desc" style="text-align: center; width: 100%;">Оставьте ваши данные, и мы свяжемся с вами в рабочее время.</p>
             
-            <form action="send.php" method="POST" style="width: 100%; display: flex; flex-direction: column; gap: 20px; margin-top: 10px;">
-                <input type="text" name="name" class="calc-input" placeholder="Ваше Имя" required>
-                <input type="tel" name="phone" class="calc-input" placeholder="Ваш телефон" required>
+            <form id="tgForm" style="width: 100%; display: flex; flex-direction: column; gap: 20px; margin-top: 10px;">
+                <input type="text" id="tgName" class="calc-input" placeholder="Ваше Имя" required>
+                <input type="tel" id="tgPhone" class="calc-input" placeholder="Ваш телефон" required>
                 <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px; font-family: inherit;">Оставить заявку</button>
             </form>
         </div>
@@ -1243,6 +1243,58 @@
         videoModal.addEventListener('click', function(e) {
             if (e.target === videoModal) closeVideoModal();
         });
+
+        /* ================================
+           ОТПРАВКА ЗАЯВКИ В ТЕЛЕГРАМ ЧЕРЕЗ JS
+           ================================ */
+        const tgForm = document.getElementById('tgForm');
+        
+        if (tgForm) {
+            tgForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Отменяем перезагрузку страницы
+
+                // Твои данные от BotFather и UserInfoBot
+                const token = "8547308401:AAHh8ui2JbsuK6fUjc_H0Am0Hht3tmLm5qc";
+                const chatId = "7455634264";
+                
+                // Получаем значения полей
+                const name = document.getElementById('tgName').value.trim();
+                const phone = document.getElementById('tgPhone').value.trim();
+                
+                // Формируем текст сообщения
+                let message = `<b>🔥 Новая заявка на сайте SRJ MOTORS!</b>\n`;
+                message += `<b>👤 Имя клиента:</b> ${name}\n`;
+                message += `<b>📞 Телефон:</b> ${phone}`;
+                
+                // URL для отправки запроса к API Telegram
+                const url = `https://api.telegram.org/bot${token}/sendMessage`;
+                
+                // Отправляем асинхронный запрос
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        parse_mode: 'html',
+                        text: message
+                    })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Перенаправляем на страницу спасибо
+                        window.location.href = 'thanks.html';
+                    } else {
+                        alert('Ошибка отправки. Пожалуйста, убедитесь, что бот запущен.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                    alert('Произошла ошибка соединения с сервером.');
+                });
+            });
+        }
     </script>
 </body>
 </html>
