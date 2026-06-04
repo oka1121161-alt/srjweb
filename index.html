@@ -381,6 +381,65 @@
         .contacts-map iframe { filter: grayscale(80%) invert(100%) contrast(120%) hue-rotate(180deg); opacity: 0.85; transition: all 0.4s ease; }
         .contacts-map:hover iframe { opacity: 1; filter: grayscale(40%) invert(100%) contrast(120%) hue-rotate(180deg); }
 
+        /* --- СТИЛИ ФУТЕРА (НИЖНЕГО МЕНЮ) --- */
+        .main-footer {
+            background: linear-gradient(180deg, rgba(10,10,10,1) 0%, var(--bg-dark) 100%);
+            border-top: 1px solid var(--border-light);
+            padding-top: 60px;
+            margin-top: 60px; 
+            position: relative;
+            overflow: hidden;
+        }
+        .main-footer::before {
+            content: ''; position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
+            width: 60%; height: 100px; background: radial-gradient(ellipse, rgba(191, 255, 0, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .footer-container {
+            max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 50px; padding: 0 20px 50px;
+        }
+        .footer-brand .footer-logo {
+            font-size: 24px; font-weight: 900; color: var(--text-light); text-transform: uppercase;
+            letter-spacing: 1.5px; margin-bottom: 20px; display: inline-block; text-decoration: none;
+        }
+        .footer-brand .footer-logo span { color: var(--neon-green); text-shadow: 0 0 15px rgba(191, 255, 0, 0.3); }
+        .footer-desc { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 25px; max-width: 350px; }
+        .footer-unp { 
+            font-size: 13px; font-weight: 500; color: #777; background: rgba(255,255,255,0.02); 
+            padding: 15px; border-radius: 12px; display: inline-block; border: 1px solid rgba(255,255,255,0.05); 
+            line-height: 1.6;
+        }
+        .footer-unp strong { color: var(--text-light); font-weight: 700; display: block; margin-bottom: 4px; font-size: 14px; }
+        .footer-title { font-size: 16px; font-weight: 800; text-transform: uppercase; color: var(--text-light); margin-bottom: 25px; letter-spacing: 1px; }
+        .footer-nav { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+        .footer-nav a {
+            color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500;
+            transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;
+        }
+        .footer-nav a::before { content: '›'; color: var(--neon-green); font-size: 16px; font-weight: 900; opacity: 0; transform: translateX(-10px); transition: all 0.3s ease; }
+        .footer-nav a:hover { color: var(--text-light); transform: translateX(5px); }
+        .footer-nav a:hover::before { opacity: 1; transform: translateX(0); }
+        .footer-contacts { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+        .fc-item { display: flex; align-items: flex-start; gap: 15px; color: var(--text-muted); font-size: 14px; line-height: 1.5; }
+        .fc-item i { color: var(--neon-green); font-size: 16px; margin-top: 3px; width: 20px; text-align: center; }
+        .fc-item a { color: var(--text-light); text-decoration: none; font-weight: 700; transition: color 0.3s ease; }
+        .fc-item a:hover { color: var(--neon-green); }
+        .footer-socials { display: flex; gap: 12px; }
+        .footer-socials a {
+            display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;
+            background: var(--bg-input); color: var(--neon-green); font-size: 18px; text-decoration: none;
+            border-radius: 12px; border: 1px solid var(--border-light); transition: all 0.3s ease;
+        }
+        .footer-socials a:hover { background-color: var(--neon-green); color: var(--bg-dark); border-color: var(--neon-green); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(191, 255, 0, 0.3); }
+        .footer-bottom { background-color: #050505; border-top: 1px solid var(--border-light); padding: 25px 20px; }
+        .footer-bottom-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .footer-copy { color: #555; font-size: 12px; font-weight: 500; }
+        .footer-policy { color: var(--text-muted); font-size: 12px; text-decoration: none; transition: color 0.3s ease; border-bottom: 1px dashed transparent; }
+        .footer-policy:hover { color: var(--text-light); border-bottom-color: var(--text-light); }
+        .footer-dev { font-size: 12px; color: #555; font-weight: 500; }
+        .footer-dev a { color: var(--text-muted); text-decoration: none; font-weight: 700; transition: all 0.3s ease; margin-left: 5px; }
+        .footer-dev a:hover { color: var(--neon-green); text-shadow: 0 0 10px rgba(191,255,0,0.3); }
+
         /* --- МОДАЛЬНЫЕ ОКНА --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -439,6 +498,12 @@
             .about-info-panel { flex-direction: column; }
             .about-info-block { padding: 30px; }
             .about-info-block:first-child { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+            
+            /* Адаптивность футера */
+            .footer-container { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .footer-brand { grid-column: span 2; text-align: center; }
+            .footer-desc { margin: 0 auto 20px; }
+            .footer-socials { flex-wrap: wrap; justify-content: center; }
         }
 
         @media (max-width: 768px) {
@@ -449,6 +514,15 @@
             .about-grid { grid-template-columns: 1fr; }
             .condition-card { flex-direction: column; align-items: center; text-align: center; padding: 30px 20px; }
             .contact-socials { justify-content: center; }
+            
+            /* Адаптивность футера */
+            .footer-container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .footer-brand { grid-column: span 1; }
+            .footer-nav { align-items: center; }
+            .footer-nav a::before { display: none; }
+            .footer-nav a:hover { transform: none; }
+            .fc-item { flex-direction: column; align-items: center; gap: 8px; }
+            .footer-bottom-container { flex-direction: column; text-align: center; }
         }
 
         @media (max-width: 400px) {
@@ -930,8 +1004,6 @@
     </section>
 
     <section class="contacts-section" id="contacts">
-        <h2 class="section-title">Свяжитесь с нами</h2>
-        
         <div class="contacts-wrapper">
             <div class="contacts-info">
                 <div class="contacts-list">
@@ -974,6 +1046,65 @@
         </div>
     </section>
 
+    <footer class="main-footer">
+        <div class="footer-container">
+            
+            <div class="footer-brand">
+                <a href="#" class="footer-logo">SRJ <span>MOTORS</span></a>
+                <p class="footer-desc">Импорт автомобилей из Китая с гарантией. Полное юридическое и техническое сопровождение сделки от подбора до выдачи ключей.</p>
+                <div class="footer-unp">
+                    <strong>ООО "СРДЖ Мотор"</strong>
+                    УНП 193811874<br>
+                    220065, г. Минск, ул. Жореса Алферова 14, пом. 320
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4 class="footer-title">Навигация</h4>
+                <ul class="footer-nav">
+                    <li><a href="#catalog">Каталог авто</a></li>
+                    <li><a href="#calculator">Калькулятор растаможки</a></li>
+                    <li><a href="#conditions">Условия работы</a></li>
+                    <li><a href="#team">Наша команда</a></li>
+                    <li><a href="#reviews">Отзывы клиентов</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-info">
+                <h4 class="footer-title">Контакты</h4>
+                <div class="footer-contacts">
+                    <div class="fc-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>г. Минск, ул. Жореса Алферова, 14</span>
+                    </div>
+                    <div class="fc-item">
+                        <i class="far fa-clock"></i>
+                        <span>ПН - ВС 9:00 - 18:00 (Без выходных)</span>
+                    </div>
+                    <div class="fc-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+375336726666">+375 33 672-66-66</a>
+                    </div>
+                </div>
+
+                <div class="footer-socials">
+                    <a href="https://t.me/srjmotors" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="viber://chat?number=%2B375336726666" target="_blank" aria-label="Viber"><i class="fab fa-viber"></i></a>
+                    <a href="https://www.instagram.com/srj.motors.by/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/375336726666" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="footer-copy">© 2026 ООО "СРДЖ Мотор". Все права защищены.</div>
+                <a href="#privacy" class="footer-policy">Политика конфиденциальности</a>
+                <div class="footer-dev">Разработка сайта: <a href="https://t.me/alievai" target="_blank">@alievai</a></div>
+            </div>
+        </div>
+    </footer>
     <div class="modal-overlay" id="carModal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
@@ -1251,25 +1382,20 @@
         
         if (tgForm) {
             tgForm.addEventListener('submit', function(e) {
-                e.preventDefault(); // Отменяем перезагрузку страницы
+                e.preventDefault(); 
 
-                // Твои данные от BotFather и UserInfoBot
                 const token = "8547308401:AAHh8ui2JbsuK6fUjc_H0Am0Hht3tmLm5qc";
                 const chatId = "7455634264";
                 
-                // Получаем значения полей
                 const name = document.getElementById('tgName').value.trim();
                 const phone = document.getElementById('tgPhone').value.trim();
                 
-                // Формируем текст сообщения
                 let message = `<b>🔥 Новая заявка на сайте SRJ MOTORS!</b>\n`;
                 message += `<b>👤 Имя клиента:</b> ${name}\n`;
                 message += `<b>📞 Телефон:</b> ${phone}`;
                 
-                // URL для отправки запроса к API Telegram
                 const url = `https://api.telegram.org/bot${token}/sendMessage`;
                 
-                // Отправляем асинхронный запрос
                 fetch(url, {
                     method: 'POST',
                     headers: {
@@ -1283,7 +1409,6 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        // Перенаправляем на страницу спасибо
                         window.location.href = 'thanks.html';
                     } else {
                         alert('Ошибка отправки. Пожалуйста, убедитесь, что бот запущен.');
