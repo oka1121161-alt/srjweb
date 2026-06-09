@@ -232,10 +232,11 @@
         .team-img-wrapper {
             width: 150px; height: 150px; margin: 0 auto 20px; border-radius: 50%;
             overflow: hidden; border: 3px solid rgba(191, 255, 0, 0.2); padding: 5px; background: var(--bg-panel);
+            box-shadow: 0 0 15px rgba(191, 255, 0, 0.3);
         }
         .team-img-wrapper img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; transition: transform 0.5s ease; }
         .team-card:hover .team-img-wrapper img { transform: scale(1.1); }
-        .team-card:hover .team-img-wrapper { border-color: var(--neon-green); box-shadow: 0 0 15px rgba(191, 255, 0, 0.3); }
+        .team-card:hover .team-img-wrapper { border-color: var(--neon-green); box-shadow: 0 0 20px rgba(191, 255, 0, 0.5); }
         .team-name { font-size: 1.3rem; font-weight: 800; color: var(--text-light); margin-bottom: 8px; letter-spacing: 0.5px; }
         .team-role { font-size: 13px; font-weight: 600; color: var(--neon-green); text-transform: uppercase; letter-spacing: 1px; }
 
@@ -382,7 +383,7 @@
         .contacts-map iframe { filter: grayscale(80%) invert(100%) contrast(120%) hue-rotate(180deg); opacity: 0.85; transition: all 0.4s ease; }
         .contacts-map:hover iframe { opacity: 1; filter: grayscale(40%) invert(100%) contrast(120%) hue-rotate(180deg); }
 
-        /* --- СТИЛИ ФУТЕРА (ПК) --- */
+        /* --- СТИЛИ ФУТЕРА --- */
         .main-footer {
             background: linear-gradient(180deg, rgba(10,10,10,1) 0%, var(--bg-dark) 100%);
             border-top: 1px solid var(--border-light); padding-top: 60px; margin-top: 60px; position: relative; overflow: hidden;
@@ -452,6 +453,11 @@
         .video-modal-content video, .video-modal-content iframe { width: 100%; border-radius: 10px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.8); outline: none; background: #000; }
         .video-modal-content iframe { aspect-ratio: 9 / 16; margin: 0 auto; max-width: calc(80vh * 9 / 16); max-height: 80vh; border: none; }
         .video-modal-content video { max-height: 80vh; object-fit: contain; }
+
+        /* Стили для легкого попапа с фото-отзывом */
+        .photo-modal-content { background: transparent !important; border: none !important; box-shadow: none !important; padding: 20px !important; text-align: center; }
+        .photo-modal-content .modal-close { right: 0; top: -30px; color: #fff; }
+        .photo-modal-img { max-width: 100%; max-height: 85vh; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.8); object-fit: contain; }
 
         /* =======================================================
            ГЛУБОКАЯ МОБИЛЬНАЯ ОПТИМИЗАЦИЯ И ИСПРАВЛЕНИЕ БАГОВ
@@ -558,7 +564,7 @@
             
             /* Попапы форм */
             .modal-content { padding: 30px 20px; border-radius: 25px; }
-            .modal-content:not(.video-modal-content):not(.callback-modal) { flex-direction: column; gap: 15px; }
+            .modal-content:not(.video-modal-content):not(.callback-modal):not(.photo-modal-content) { flex-direction: column; gap: 15px; }
             .modal-img-col { height: 160px; }
             .modal-title { font-size: 1.5rem; text-transform: uppercase; }
             .modal-desc { font-size: 12px; margin-bottom: 15px; }
@@ -657,7 +663,7 @@
         <div class="catalog-slider">
             <div class="car-card" onclick="openModal('sealion06')">
                 <div class="car-img-wrapper"><img src="sealion06.png" alt="BYD Sea Lion 06" class="car-img"></div>
-                <h3 class="car-title">BYD Sea Lion 06</h3>
+                <h3 class="car-title">BYD Sea Lion 06 EV</h3>
                 <div class="car-specs">
                     <div class="spec-item"><span class="spec-label">Батарея</span><span class="spec-value">71.8 кВт⋅ч</span></div>
                     <div class="spec-item"><span class="spec-label">Запас хода</span><span class="spec-value">510 км</span></div>
@@ -963,7 +969,7 @@
             </div>
             
             <div class="team-card">
-                <div class="team-img-wrapper"><img src="max.png" alt="Максим"></div>
+                <div class="team-img-wrapper"><img src="team2.png" alt="Максим"></div>
                 <h3 class="team-name">Максим</h3>
                 <p class="team-role">Переводчик</p>
             </div>
@@ -990,33 +996,40 @@
                 <img src="cover1.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 1" class="review-cover">
                 <div class="play-overlay"><i class="fas fa-play"></i></div>
             </div>
-            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
-                <img src="cover2.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 2" class="review-cover">
-                <div class="play-overlay"><i class="fas fa-play"></i></div>
+            
+            <div class="review-card" onclick="openPhotoModal('review2.png')">
+                <img src="review2.png" alt="Отзыв 2" class="review-cover">
+                <div class="play-overlay"><i class="fas fa-search-plus"></i></div>
             </div>
-            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
-                <img src="cover3.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 3" class="review-cover">
-                <div class="play-overlay"><i class="fas fa-play"></i></div>
+            
+            <div class="review-card" onclick="openPhotoModal('review3.png')">
+                <img src="review3.png" alt="Отзыв 3" class="review-cover">
+                <div class="play-overlay"><i class="fas fa-search-plus"></i></div>
             </div>
+            
             <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
                 <img src="cover4.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 4" class="review-cover">
                 <div class="play-overlay"><i class="fas fa-play"></i></div>
             </div>
-            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
-                <img src="cover5.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 5" class="review-cover">
-                <div class="play-overlay"><i class="fas fa-play"></i></div>
+            
+            <div class="review-card" onclick="openPhotoModal('review5.png')">
+                <img src="review5.png" alt="Отзыв 5" class="review-cover">
+                <div class="play-overlay"><i class="fas fa-search-plus"></i></div>
             </div>
-            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
-                <img src="cover6.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 6" class="review-cover">
-                <div class="play-overlay"><i class="fas fa-play"></i></div>
+            
+            <div class="review-card" onclick="openPhotoModal('review6.png')">
+                <img src="review6.png" alt="Отзыв 6" class="review-cover">
+                <div class="play-overlay"><i class="fas fa-search-plus"></i></div>
             </div>
-            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
-                <img src="cover7.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 7" class="review-cover">
-                <div class="play-overlay"><i class="fas fa-play"></i></div>
+            
+            <div class="review-card" onclick="openPhotoModal('review7.png')">
+                <img src="review7.png" alt="Отзыв 7" class="review-cover">
+                <div class="play-overlay"><i class="fas fa-search-plus"></i></div>
             </div>
-            <div class="review-card video-interactive" onclick="openVideoModal('https://www.youtube.com/embed/qV8jJ1aAT1w?autoplay=1')">
-                <img src="cover8.png" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/qV8jJ1aAT1w/hqdefault.jpg';" alt="Отзыв 8" class="review-cover">
-                <div class="play-overlay"><i class="fas fa-play"></i></div>
+            
+            <div class="review-card" onclick="openPhotoModal('review8.png')">
+                <img src="review8.png" alt="Отзыв 8" class="review-cover">
+                <div class="play-overlay"><i class="fas fa-search-plus"></i></div>
             </div>
         </div>
     </section>
@@ -1071,7 +1084,7 @@
                 <a href="#" class="footer-logo">SRJ <span>MOTORS</span></a>
                 <p class="footer-desc">Импорт автомобилей из Китая с гарантией. Полное юридическое и техническое сопровождение сделки от подбора до выдачи ключей.</p>
                 <div class="footer-unp">
-                    <strong>ООО "СРДЖ Мотор"</strong>
+                    <strong>ООО "СРДЖ Мотор"</strong><br>
                     УНП 193811874<br>
                     220065, г. Минск, ул. Жореса Алферова 14, пом. 320
                 </div>
@@ -1163,6 +1176,13 @@
             <span class="modal-close" onclick="closeVideoModal()">&times;</span>
             <video id="popupVideoPlayer" controls playsinline style="display: none;"></video>
             <iframe id="popupYoutubePlayer" allow="autoplay; fullscreen" style="display: none;"></iframe>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="photoModal">
+        <div class="modal-content photo-modal-content">
+            <span class="modal-close" onclick="closePhotoModal()">&times;</span>
+            <img src="" id="photoModalImg" class="photo-modal-img" alt="Отзыв">
         </div>
     </div>
 
@@ -1280,7 +1300,11 @@
             if (selectedEngine === 'ice') {
                 benefitBlock.style.display = 'block';
                 engineVolumeField.classList.remove('hidden');
-            } else {
+            } else if (selectedEngine === 'hybrid') {
+                benefitBlock.style.display = 'block'; /* Оставляем блок льгот для гибридов */
+                engineVolumeField.classList.add('hidden');
+                engineVolumeInput.value = '';
+            } else { // electric
                 benefitBlock.style.display = 'none';
                 engineVolumeField.classList.add('hidden');
                 engineVolumeInput.value = '';
@@ -1335,15 +1359,16 @@
             if (selectedEngine === 'ice') {
                 duty = calculateDuty(carPrice, engineVolume, selectedAge);
                 if (hasBenefit) duty = duty / 2;
-            }
-            if (selectedEngine === 'hybrid') {
+            } else if (selectedEngine === 'hybrid') {
                 duty = carPrice * 0.15;
+                if (hasBenefit) duty = duty / 2; // Применяем льготу к пошлине гибрида
             }
             dutyValue.textContent = `${Math.round(duty).toLocaleString('ru-RU')} €`;
 
             let nds = 0;
             if (selectedEngine === 'hybrid') {
                 nds = (carPrice + duty) * 0.20;
+                if (hasBenefit) nds = nds / 2; // Применяем льготу к НДС гибрида
             }
             ndsValue.textContent = `${Math.round(nds).toLocaleString('ru-RU')} €`;
 
@@ -1394,6 +1419,28 @@
 
         videoModal.addEventListener('click', function(e) {
             if (e.target === videoModal) closeVideoModal();
+        });
+
+        /* ================================
+           ЛОГИКА ПОПАПА ДЛЯ ФОТО-ОТЗЫВОВ
+           ================================ */
+        const photoModal = document.getElementById('photoModal');
+        const photoModalImg = document.getElementById('photoModalImg');
+
+        function openPhotoModal(imgSrc) {
+            photoModalImg.src = imgSrc;
+            photoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePhotoModal() {
+            photoModal.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => { photoModalImg.src = ''; }, 300); // Очищаем картинку после того, как попап исчез
+        }
+
+        photoModal.addEventListener('click', function(e) {
+            if (e.target === photoModal) closePhotoModal();
         });
 
         /* ================================
