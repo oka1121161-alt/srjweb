@@ -29,7 +29,7 @@
         html, body {
             width: 100%;
             max-width: 100vw;
-            overflow-x: hidden; /* Жесткий запрет горизонтального скролла */
+            overflow-x: hidden;
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-light);
@@ -147,7 +147,7 @@
 
         /* --- ГЛАВНЫЙ ЭКРАН --- */
         .hero {
-            position: relative; height: 85vh; min-height: 600px; width: 100%;
+            position: relative; height: 85vh; min-height: 600px;
             background: url('srjhero.png') center/cover no-repeat;
             display: flex; align-items: center; justify-content: center; text-align: center;
         }
@@ -155,7 +155,7 @@
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(7,7,7,1) 100%); z-index: 1;
         }
-        .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; width: 100%; }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
         .hero h1 {
             font-size: 4.5rem; font-weight: 900; text-transform: uppercase;
             letter-spacing: 2px; line-height: 1.1; margin-bottom: 40px;
@@ -173,7 +173,7 @@
             transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 30px rgba(191, 255, 0, 0.8), inset 0 0 15px rgba(255,255,255,0.6); background-color: #ccff33;
         }
 
-        /* --- СЛАЙДЕРЫ --- */
+        /* --- СЛАЙДЕРЫ (КАТАЛОГ, КОМАНДА, ОТЗЫВЫ) --- */
         .catalog-section, .team-section, .reviews-section { padding: 80px 0 60px; background-color: var(--bg-dark); width: 100%; }
         .reviews-section { background-image: radial-gradient(circle at 50% 0%, #1a2210 0%, #070707 60%); }
         .section-title {
@@ -186,7 +186,7 @@
         }
         
         .catalog-slider, .team-slider, .reviews-slider {
-            display: flex; gap: 30px; padding: 20px 50px 40px 50px; overflow-x: auto; width: 100%;
+            display: flex; gap: 30px; padding: 20px 50px 40px 50px; overflow-x: auto;
             scroll-snap-type: x mandatory; scroll-padding: 50px; scrollbar-width: thin; scrollbar-color: var(--neon-green) var(--bg-panel);
         }
         .catalog-slider::after, .team-slider::after, .reviews-slider::after { content: ''; padding-right: 1px; }
@@ -206,7 +206,7 @@
         }
         .car-card:hover { transform: translateY(-10px); border-color: rgba(191, 255, 0, 0.5); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(191, 255, 0, 0.15); }
         .car-card:hover::before { opacity: 1; }
-        .car-img-wrapper { height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; position: relative; z-index: 2; width: 100%; }
+        .car-img-wrapper { height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; position: relative; z-index: 2; }
         .car-img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 15px 15px rgba(0,0,0,0.6)); transition: transform 0.5s ease; }
         .car-card:hover .car-img { transform: scale(1.08); }
         .car-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 15px; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; position: relative; z-index: 2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
@@ -252,12 +252,12 @@
         .review-card:hover .review-cover { transform: scale(1.05); }
 
         /* --- СЕКЦИЯ КАЛЬКУЛЯТОРА --- */
-        .calculator-section { padding: 60px 20px; background-color: var(--bg-dark); width: 100%; }
-        .calc-wrapper { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 30px; align-items: start; width: 100%; }
+        .calculator-section { padding: 60px 20px; background-color: var(--bg-dark); }
+        .calc-wrapper { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 30px; align-items: start; }
         .calculator-form, .result-card {
             background: rgba(16, 16, 16, 0.85); border: 1px solid rgba(191, 255, 0, 0.15);
             border-radius: 30px; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(191, 255, 0, 0.02); padding: 40px; width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(191, 255, 0, 0.02); padding: 40px;
         }
         .result-card { position: sticky; top: 120px; }
         .calc-subtitle { color: var(--text-muted); font-size: 14px; font-weight: 500; margin-bottom: 35px; text-align: center; }
@@ -312,7 +312,7 @@
         .res-rate { margin-top: 20px; text-align: center; color: var(--text-muted); font-size: 12px; font-weight: 600; }
 
         /* --- СЕКЦИЯ УСЛОВИЯ РАБОТЫ --- */
-        .conditions-section { padding: 80px 20px 60px; background-color: var(--bg-dark); width: 100%; }
+        .conditions-section { padding: 80px 20px 60px; background-color: var(--bg-dark); }
         .conditions-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
         .condition-card {
             background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(10,10,10,0.9) 100%); border: 1px solid rgba(191, 255, 0, 0.15); border-radius: 20px; padding: 40px; display: flex; align-items: flex-start; gap: 25px; transition: all 0.4s ease;
@@ -326,7 +326,7 @@
         .condition-content .accent { color: var(--neon-green); font-weight: 600; }
 
         /* --- СЕКЦИЯ О НАС (НАШИ ПРЕДСТАВИТЕЛЬСТВА) --- */
-        .about-section { padding: 80px 20px 60px; background-image: radial-gradient(circle at 50% 0%, #1a2210 0%, #070707 60%); width: 100%; }
+        .about-section { padding: 80px 20px 60px; background-image: radial-gradient(circle at 50% 0%, #1a2210 0%, #070707 60%); }
         .about-info-panel {
             max-width: 1280px; margin: 0 auto 50px; display: flex; background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(10,10,10,0.9) 100%);
             border: 1px solid rgba(191, 255, 0, 0.15); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(191, 255, 0, 0.03); overflow: hidden; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -338,8 +338,8 @@
         .about-info-content .accent { color: var(--neon-green); font-weight: 600; }
         .about-info-content strong { color: #fff; font-weight: 700; }
         
-        .about-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; }
-        .office-card { background: rgba(16, 16, 16, 0.85); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.4s ease; width: 100%; }
+        .about-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .office-card { background: rgba(16, 16, 16, 0.85); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.4s ease; }
         .office-card:hover { border-color: rgba(191, 255, 0, 0.3); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 15px rgba(191, 255, 0, 0.1); transform: translateY(-5px); }
         .office-media { width: 100%; aspect-ratio: 16 / 9; background-color: #000; position: relative; overflow: hidden; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         .video-interactive { cursor: pointer; }
@@ -358,12 +358,12 @@
         .office-address i { color: var(--neon-green); }
 
         /* --- СЕКЦИЯ КОНТАКТЫ (ПК) --- */
-        .contacts-section { padding: 80px 20px 100px; background-color: var(--bg-dark); width: 100%; }
+        .contacts-section { padding: 80px 20px 100px; background-color: var(--bg-dark); }
         .contacts-wrapper {
             max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
             background: rgba(16, 16, 16, 0.85); border: 1px solid rgba(191, 255, 0, 0.15);
             border-radius: 30px; padding: 40px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(191, 255, 0, 0.02);
-            backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); width: 100%;
+            backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
         }
         .contacts-info { display: flex; flex-direction: column; justify-content: center; }
         .contacts-list { display: flex; flex-direction: column; gap: 25px; margin-bottom: 40px; }
@@ -385,13 +385,13 @@
         /* --- СТИЛИ ФУТЕРА (ПК) --- */
         .main-footer {
             background: linear-gradient(180deg, rgba(10,10,10,1) 0%, var(--bg-dark) 100%);
-            border-top: 1px solid var(--border-light); padding-top: 60px; margin-top: 60px; position: relative; overflow: hidden; width: 100%;
+            border-top: 1px solid var(--border-light); padding-top: 60px; margin-top: 60px; position: relative; overflow: hidden;
         }
         .main-footer::before {
             content: ''; position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
             width: 60%; height: 100px; background: radial-gradient(ellipse, rgba(191, 255, 0, 0.05) 0%, transparent 70%); pointer-events: none;
         }
-        .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 50px; padding: 0 20px 50px; width: 100%; }
+        .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 50px; padding: 0 20px 50px; }
         .footer-brand .footer-logo { font-size: 24px; font-weight: 900; color: var(--text-light); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; display: inline-block; text-decoration: none; }
         .footer-brand .footer-logo span { color: var(--neon-green); text-shadow: 0 0 15px rgba(191, 255, 0, 0.3); }
         .footer-desc { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 25px; max-width: 350px; }
@@ -412,8 +412,8 @@
         .footer-socials { display: flex; gap: 12px; }
         .footer-socials a { display: flex; justify-content: center; align-items: center; width: 40px; height: 40px; background: var(--bg-input); color: var(--neon-green); font-size: 18px; text-decoration: none; border-radius: 12px; border: 1px solid var(--border-light); transition: all 0.3s ease; }
         .footer-socials a:hover { background-color: var(--neon-green); color: var(--bg-dark); border-color: var(--neon-green); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(191, 255, 0, 0.3); }
-        .footer-bottom { background-color: #050505; border-top: 1px solid var(--border-light); padding: 25px 20px; width: 100%; }
-        .footer-bottom-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; width: 100%; }
+        .footer-bottom { background-color: #050505; border-top: 1px solid var(--border-light); padding: 25px 20px; }
+        .footer-bottom-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
         .footer-copy { color: #555; font-size: 12px; font-weight: 500; }
         .footer-bottom-links { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
         .footer-bottom-links span.dot { color: #555; }
@@ -468,34 +468,19 @@
             body { padding-top: 70px; }
         }
 
-        /* Основная точка перелома для смартфонов */
         @media (max-width: 768px) {
-            /* 1. Жестко уменьшаем шрифты заголовков, чтобы не рвали экран */
-            .section-title { 
-                font-size: 1.6rem !important; 
-                letter-spacing: 0.5px !important; 
-                margin-bottom: 30px !important;
-                padding: 0 15px !important;
-                word-wrap: break-word; /* Защита от слишком длинных слов */
-            }
+            /* Жестко уменьшаем шрифты заголовков */
+            .section-title { font-size: 1.6rem !important; letter-spacing: 0.5px !important; margin-bottom: 30px !important; padding: 0 15px !important; word-wrap: break-word; }
 
-            /* Главный экран */
             .hero { height: 60vh; min-height: 400px; }
             .hero h1 { font-size: 2.2rem; margin-bottom: 25px; letter-spacing: 1px; }
             .btn-primary { padding: 15px 35px; font-size: 14px; width: 100%; text-align: center; }
 
-            /* 2. Калькулятор: Классический вид (строго 1 колонка, без выкрутасов) */
+            /* Калькулятор: Классический вид для мобилок */
             .calculator-section { padding: 40px 0; }
-            .calc-wrapper { 
-                grid-template-columns: 1fr; /* Одна колонка */
-                gap: 20px; 
-                padding: 0 15px; 
-            }
-            .calculator-form, .result-card { 
-                padding: 25px 20px !important; /* Уменьшили внутренние отступы */
-                width: 100%; 
-            }
-            .result-card { position: static; } /* Отключаем залипание */
+            .calc-wrapper { grid-template-columns: 1fr; gap: 20px; padding: 0 15px; }
+            .calculator-form, .result-card { padding: 25px 20px !important; width: 100%; }
+            .result-card { position: static; } 
             .calc-input { height: 50px; font-size: 15px; padding: 0 15px; border-radius: 10px; }
             .calc-currency { right: 15px; font-size: 16px; }
             .calc-select-grid { grid-template-columns: 1fr; gap: 8px; }
@@ -503,9 +488,7 @@
             .calc-label { font-size: 12px; margin-bottom: 8px; }
 
             /* Оптимизация слайдеров (Каталог, Команда, Отзывы) */
-            .catalog-slider, .team-slider, .reviews-slider { 
-                padding: 15px 15px 30px 15px; gap: 15px; scroll-padding: 15px; 
-            }
+            .catalog-slider, .team-slider, .reviews-slider { padding: 15px 15px 30px 15px; gap: 15px; scroll-padding: 15px; }
             .car-card { flex: 0 0 85%; padding: 20px 15px; border-radius: 15px; }
             .car-img-wrapper { height: 140px; }
             .car-title { font-size: 1.2rem; }
@@ -542,25 +525,20 @@
             .about-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 15px; }
             .office-card { border-radius: 15px; }
 
-            /* 3. Премиальный мобильный футер и контакты */
+            /* Контакты в контенте */
             .contacts-section { padding: 40px 0; }
             .contacts-wrapper { grid-template-columns: 1fr; padding: 20px 15px; border-radius: 20px; margin: 0 15px; gap: 25px; }
             .contacts-map { min-height: 250px; height: 250px; border-radius: 15px; }
             
+            /* Премиальный мобильный футер */
             .main-footer { padding-top: 40px; margin-top: 40px; }
             .footer-container { grid-template-columns: 1fr; gap: 35px; text-align: center; padding: 0 15px 30px; }
             .footer-brand { grid-column: span 1; }
             .footer-desc { margin: 0 auto 20px; font-size: 13px; }
             .footer-unp { padding: 12px; border-radius: 10px; width: 100%; font-size: 12px; }
             
-            /* Навигация футера: сетка в 2 колонки */
-            .footer-title { margin-bottom: 15px; font-size: 15px; }
-            .footer-nav { 
-                display: grid; grid-template-columns: 1fr 1fr; gap: 15px 10px; 
-                text-align: left; margin: 0 auto; max-width: 100%; 
-            }
-            .footer-nav a { font-size: 13px; justify-content: flex-start; }
-            .footer-nav a::before { display: none; }
+            /* Скрываем навигацию футера на мобилках полностью */
+            .footer-links { display: none !important; }
             
             /* Контакты футера: плашки iOS style */
             .footer-contacts { gap: 10px; max-width: 100%; margin: 0 auto 25px; }
@@ -781,6 +759,7 @@
         
         <div class="calc-wrapper">
             <div class="calculator-form">
+                
                 <div class="calc-field">
                     <label class="calc-label">Стоимость авто</label>
                     <div class="calc-input-wrap">
@@ -839,6 +818,7 @@
                         <input type="number" id="engineVolume" class="calc-input" placeholder="Например: 2000">
                     </div>
                 </div>
+
             </div>
 
             <div class="result-card">
@@ -846,15 +826,15 @@
                 
                 <div class="res-list">
                     <div class="res-item">
-                        <span class="res-name">Пошлина</span>
+                        <span class="res-name">Таможенная пошлина</span>
                         <span class="res-value" id="dutyValue">0 €</span>
                     </div>
                     <div class="res-item">
-                        <span class="res-name">Сбор</span>
+                        <span class="res-name">Таможенный сбор</span>
                         <span class="res-value">120 BYN</span>
                     </div>
                     <div class="res-item">
-                        <span class="res-name">Утильсбор</span>
+                        <span class="res-name">Утилизационный сбор</span>
                         <span class="res-value" id="utilValue">625 BYN</span>
                     </div>
                     <div class="res-item">
@@ -862,7 +842,7 @@
                         <span class="res-value" id="ndsValue">0 €</span>
                     </div>
                     <div class="res-item">
-                        <span class="res-name">СВХ</span>
+                        <span class="res-name">Расходы на СВХ</span>
                         <span class="res-value">700 BYN</span>
                     </div>
                 </div>
@@ -874,7 +854,9 @@
                     </div>
                 </div>
 
-                <div class="res-rate" id="rateInfo">Загрузка курса НБРБ...</div>
+                <div class="res-rate" id="rateInfo">
+                    Загрузка курса НБРБ...
+                </div>
             </div>
         </div>
     </section>
@@ -895,7 +877,7 @@
                 <div class="condition-icon"><i class="fas fa-exchange-alt"></i></div>
                 <div class="condition-content">
                     <h3>Гибкая система оплаты</h3>
-                    <p>Вы можете перевести средства напрямую на счет нашей компании <span class="accent">в Китае</span> или произвести оплату на счет нашей компании <span class="accent">в Республике Беларусь</span>.</p>
+                    <p>Вы можете перевести средства напрямую на счет нашей компании <span class="accent">в Китае</span> или произвести оплату на счет нашей компании <span class="accent">в Республике Беларусь</span> — выбирайте тот способ, который удобнее Вам.</p>
                 </div>
             </div>
 
@@ -910,8 +892,8 @@
             <div class="condition-card">
                 <div class="condition-icon"><i class="fas fa-car-battery"></i></div>
                 <div class="condition-content">
-                    <h3>Гарантия на узлы</h3>
-                    <p>Мы предоставляем гарантию <span class="accent">3 года или 60 000 км</span> на батарею и двигатель. Будьте спокойны за техническую часть.</p>
+                    <h3>Гарантия на ключевые узлы</h3>
+                    <p>Мы предоставляем гарантию <span class="accent">3 года или 60 000 км пробега</span> на батарею и двигатель. Таким образом, при заказе нового автомобиля Вы можете быть абсолютно спокойны за его техническую часть.</p>
                 </div>
             </div>
         </div>
@@ -924,7 +906,7 @@
             <div class="about-info-block">
                 <div class="about-info-icon"><i class="fas fa-globe"></i></div>
                 <div class="about-info-content">
-                    <p>Наша компания официально представлена в трех странах: <span class="accent">Китае, Беларуси и Азербайджане</span>. Головной офис расположен в <strong>Чэнду</strong>, а представительства в <strong>Баку</strong> и <strong>Минске</strong>.</p>
+                    <p>Наша компания официально представлена в трех странах: <span class="accent">Китае, Беларуси и Азербайджане</span>. Головной офис расположен в <strong>Чэнду</strong>, а представительства работают в <strong>Баку</strong> и <strong>Минске</strong>.</p>
                 </div>
             </div>
             
@@ -975,33 +957,27 @@
         
         <div class="team-slider">
             <div class="team-card">
-                <div class="team-img-wrapper"><img src="team1.png" alt="Директор"></div>
-                <h3 class="team-name">Александр</h3>
+                <div class="team-img-wrapper"><img src="justin.jpg" alt="Джастин"></div>
+                <h3 class="team-name">Джастин</h3>
                 <p class="team-role">Директор</p>
             </div>
             
             <div class="team-card">
-                <div class="team-img-wrapper"><img src="team2.png" alt="Менеджер"></div>
+                <div class="team-img-wrapper"><img src="team2.png" alt="Максим"></div>
                 <h3 class="team-name">Максим</h3>
-                <p class="team-role">Менеджер по продажам</p>
-            </div>
-            
-            <div class="team-card">
-                <div class="team-img-wrapper"><img src="team3.png" alt="Менеджер"></div>
-                <h3 class="team-name">Елена</h3>
-                <p class="team-role">Менеджер по продажам</p>
-            </div>
-            
-            <div class="team-card">
-                <div class="team-img-wrapper"><img src="team4.png" alt="Переводчик"></div>
-                <h3 class="team-name">Анна</h3>
                 <p class="team-role">Переводчик</p>
             </div>
-
+            
             <div class="team-card">
-                <div class="team-img-wrapper"><img src="team5.png" alt="Логист"></div>
-                <h3 class="team-name">Дмитрий</h3>
-                <p class="team-role">Логист</p>
+                <div class="team-img-wrapper"><img src="kate.jpg" alt="Екатерина"></div>
+                <h3 class="team-name">Екатерина</h3>
+                <p class="team-role">Менеджер по продажам</p>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img-wrapper"><img src="arch.png" alt="Ариф"></div>
+                <h3 class="team-name">Ариф</h3>
+                <p class="team-role">Менеджер по продажам</p>
             </div>
         </div>
     </section>
@@ -1045,10 +1021,50 @@
         </div>
     </section>
 
-    <section class="contacts-section" id="contacts" style="display: none;">
-        </section>
+    <section class="contacts-section" id="contacts">
+        <div class="contacts-wrapper">
+            <div class="contacts-info">
+                <div class="contacts-list">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-details">
+                            <h4>Адрес</h4>
+                            <p>г. Минск, ул. Жореса Алферова, 14</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="far fa-clock"></i></div>
+                        <div class="contact-details">
+                            <h4>Режим работы</h4>
+                            <p>ПН - ВС 9:00 - 18:00 (Без выходных)</p>
+                        </div>
+                    </div>
 
-    <footer class="main-footer" id="contacts-footer">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-details">
+                            <h4>Телефон</h4>
+                            <p>+375 33 672-66-66</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-socials">
+                    <a href="https://t.me/srjmotors" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="viber://chat?number=%2B375336726666" target="_blank" aria-label="Viber"><i class="fab fa-viber"></i></a>
+                    <a href="https://www.instagram.com/srj.motors.by/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/375336726666" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="contacts-map">
+                <iframe src="https://yandex.ru/map-widget/v1/-/CPXAJM4b" width="100%" height="100%" frameborder="0" allowfullscreen="true" style="border: 0; display: block;"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
         <div class="footer-container">
             
             <div class="footer-brand">
@@ -1063,13 +1079,13 @@
 
             <div class="footer-links">
                 <h4 class="footer-title">Навигация</h4>
-                <div class="footer-nav">
-                    <a href="#catalog">Каталог авто</a>
-                    <a href="#calculator">Растаможка</a>
-                    <a href="#conditions">Условия работы</a>
-                    <a href="#team">Наша команда</a>
-                    <a href="#reviews">Отзывы</a>
-                </div>
+                <ul class="footer-nav">
+                    <li><a href="#catalog">Каталог авто</a></li>
+                    <li><a href="#calculator">Калькулятор растаможки</a></li>
+                    <li><a href="#conditions">Условия работы</a></li>
+                    <li><a href="#team">Наша команда</a></li>
+                    <li><a href="#reviews">Отзывы клиентов</a></li>
+                </ul>
             </div>
 
             <div class="footer-info">
@@ -1081,7 +1097,7 @@
                     </div>
                     <div class="fc-item">
                         <i class="far fa-clock"></i>
-                        <span>ПН - ВС 9:00 - 18:00</span>
+                        <span>ПН - ВС 9:00 - 18:00 (Без выходных)</span>
                     </div>
                     <div class="fc-item">
                         <i class="fas fa-phone-alt"></i>
@@ -1110,7 +1126,6 @@
             </div>
         </div>
     </footer>
-
     <div class="modal-overlay" id="carModal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
@@ -1193,7 +1208,7 @@
            ЛОГИКА МОДАЛЬНОГО ОКНА КАТАЛОГА
            ================================ */
         const carData = {
-            'sealion06': { title: 'BYD Sea Lion 06', img: 'sealion06.png', desc: 'Современный кроссовер нового поколения. Оснащен передовой архитектурой e-Platform 3.0 Evo с технологией интеграции батареи CTB (Cell-to-Body).', bat: '71.8 кВт⋅ч', range: '510 км', hp: '218 л.с.', drive: 'Передний' },
+            'sealion06': { title: 'BYD Sea Lion 06 EV', img: 'sealion06.png', desc: 'Современный кроссовер нового поколения. Оснащен передовой архитектурой e-Platform 3.0 Evo с технологией интеграции батареи CTB (Cell-to-Body).', bat: '71.8 кВт⋅ч', range: '510 км', hp: '218 л.с.', drive: 'Передний' },
             'sealion07': { title: 'BYD Sea Lion 07', img: 'sealion07.png', desc: 'Стильный электрический фастбэк-кроссовер с выдающейся аэродинамикой и премиальным интерьером. Воплощает в себе будущее электрического транспорта.', bat: '80.6 кВт⋅ч', range: '610 км', hp: '313 л.с.', drive: 'Задний' },
             'q05': { title: 'Changan Q05', img: 'changan_q05.png', desc: 'Динамичный и технологичный городской кроссовер с выразительным футуристичным дизайном. Идеальный баланс комфорта и эффективности.', bat: '60 кВт⋅ч', range: '450 км', hp: '215 л.с.', drive: 'Передний' },
             'a06': { title: 'Changan A06', img: 'changan_a06.png', desc: 'Спортивный лифтбек, притягивающий взгляды. Отличается агрессивным экстерьером, продвинутыми электронными ассистентами и превосходной динамикой разгона.', bat: '55 кВт⋅ч', range: '505 км', hp: '258 л.с.', drive: 'Передний' },
