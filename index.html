@@ -135,6 +135,7 @@
         .mobile-menu-close { font-size: 32px; color: var(--text-muted); cursor: pointer; transition: color 0.3s ease; }
         .mobile-menu-close:hover { color: var(--neon-green); }
 
+        /* ИСПРАВЛЕННЫЙ КЛАСС МЕНЮ */
         .mobile-nav-links { display: flex; flex-direction: column; gap: 18px; margin-bottom: 40px; }
         .mobile-nav-links a {
             color: var(--text-light); text-decoration: none; font-size: 15px; font-weight: 600;
@@ -479,6 +480,7 @@
         }
 
         @media (max-width: 768px) {
+            /* Жестко уменьшаем шрифты заголовков */
             .section-title { font-size: 1.6rem !important; letter-spacing: 0.5px !important; margin-bottom: 30px !important; padding: 0 15px !important; word-wrap: break-word; }
 
             .hero { height: 60vh; min-height: 400px; }
@@ -512,7 +514,7 @@
             .team-name { font-size: 1rem; }
             .team-role { font-size: 11px; }
 
-            /* Отзывы: 2 вертикальных превью в ряд */
+            /* Отзывы: 2 вертикальных видео в ряд */
             .reviews-slider { gap: 15px; }
             .review-card { flex: 0 0 calc(50% - 7.5px); min-width: auto; border-radius: 15px; }
 
@@ -636,7 +638,8 @@
                 <i class="fas fa-times"></i>
             </div>
         </div>
-        <div class="mobile-menu-links">
+        
+        <div class="mobile-nav-links">
             <a href="#" onclick="toggleMenu()">Главная</a> 
             <a href="#catalog" onclick="toggleMenu()">Каталог</a> 
             <a href="#calculator" onclick="toggleMenu()">Калькулятор растаможки</a>
@@ -646,6 +649,7 @@
             <a href="#reviews" onclick="toggleMenu()">Отзывы</a>
             <a href="#contacts" onclick="toggleMenu()">Контакты</a>
         </div>
+        
         <div class="mobile-menu-footer">
             <div class="mm-info-item"><i class="fas fa-phone-alt"></i><a href="tel:+375336726666">+375 33 672-66-66</a></div>
             <div class="mm-info-item"><i class="far fa-clock"></i><span>ПН - ВС 9:00 - 18:00</span></div>
